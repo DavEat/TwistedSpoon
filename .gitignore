@@ -1,0 +1,8 @@
+Library/
+Temp/
+*.pdb
+*.dll
+*.DS_Store
+*.userprefs
+*.csproj
+*.sln
