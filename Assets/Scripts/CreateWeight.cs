@@ -34,7 +34,7 @@ public class CreateWeight : MonoBehaviour {
         mesh.transform.localPosition = Vector3.zero;
 
         foreach(GameObject w in listWeight)
-            Physics.IgnoreCollision(newWeight.GetComponent<Collider>(), w.GetComponent<Collider>());
+            Physics.IgnoreCollision(mesh.GetComponent<Collider>(), w.transform.GetChild(0).GetComponent<Collider>());
 
         newWeight.transform.parent = parentt;
         newWeight.transform.localEulerAngles = Vector3.zero;
