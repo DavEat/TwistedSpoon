@@ -39,10 +39,18 @@ public class DragAndDrop : MonoBehaviour {
                     currentDragElement = null;
                 }               
             }
-            else if (Input.GetMouseButton(0))
+            else if (Input.GetMouseButtonDown(0))
             {
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 CheckClick(ray);
+            }
+            else if (Input.GetMouseButton(0))
+            {
+                if (currentDragElement != null)
+                {
+                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                    CheckClick(ray);
+                }                
             }
         #elif (UNITY_ANDROID || UNITY_IPHONE || UNITY_WP8)
             
