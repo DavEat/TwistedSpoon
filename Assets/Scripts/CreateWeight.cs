@@ -12,14 +12,17 @@ public class CreateWeight : MonoBehaviour {
 
     void Start()
     {
-
-
+        int iLastRandom = Random.Range(0, listMesh.Count);
         foreach (Transform t in listPosInventory)
         {
-            int iRandom = Random.Range(0, listWeight.Count);
-            int iQuantity = listMesh[iRandom].GetComponent<Weight_Mesh>().iQuantity;
-            units eUnits = listMesh[iRandom].GetComponent<Weight_Mesh>().eUnits;
-            CreateObj(iQuantity, listMesh[iRandom].name, eUnits, t);
+            if ( iLastRandom <= listMesh.Count / 2)
+                iLastRandom = Random.Range(iLastRandom, listMesh.Count);
+            else
+                iLastRandom = Random.Range(0, iLastRandom);
+
+            int iQuantity = listMesh[iLastRandom].GetComponent<Weight_Mesh>().iQuantity;
+            units eUnits = listMesh[iLastRandom].GetComponent<Weight_Mesh>().eUnits;
+            CreateObj(iQuantity, listMesh[iLastRandom].name, eUnits, t);
         }
     }
 

@@ -120,5 +120,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc44411e4ee20a540bd65a5d8770c741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iQuantity: 0
+  iQuantity: 15
   eUnits: 0
+  aClip: {fileID: 0}

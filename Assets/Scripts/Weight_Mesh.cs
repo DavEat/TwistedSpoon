@@ -5,4 +5,6 @@ public class Weight_Mesh : MonoBehaviour {
 
     public int iQuantity;
     public units eUnits;
+    public AudioClip aClip;
+
 }
