@@ -25,13 +25,14 @@ public enum meshName
     Cube
 }
 
-public class WeightInfo
+public class WeightInfo : MonoBehaviour
 {
+    private bool upSide;
     private int quantity;
     private string meshName;
     private units unit;
 
-    public WeightInfo(int _quantity, meshName _meshName, units _unit)
+    public void Init(int _quantity, meshName _meshName, units _unit)
     {
         this.quantity = _quantity;
         this.meshName = _meshName.ToString();
@@ -39,12 +40,12 @@ public class WeightInfo
     }
 
     //----- Getter Setter -----
-    public int GetWeight()
+    public int GetQuantity()
     {
         return this.quantity;
     }
 
-    public void SetWeight(int value)
+    public void SetQuantity(int value)
     {
         this.quantity = value;
     }
@@ -69,4 +70,15 @@ public class WeightInfo
     {
         this.unit = value;
     }
+
+    public bool GetUpSide()
+    {
+        return this.upSide;
+    }
+
+    public void SetUpSide(bool value)
+    {
+        this.upSide = value;
+    }
 }
+
