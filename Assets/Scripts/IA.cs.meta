@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Scripts/IA.cs.meta
 guid: fec329a297baf6f40a83cd4551b09802
 timeCreated: 1475950497
+=======
+guid: fcce64471dc6f7a49bd02a8c0d2084db
+timeCreated: 1475949992
+>>>>>>> b6f6ce5d467606e72896b1433abd72e77042d5fc:Assets/Scripts/IA.cs.meta
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
