@@ -5,7 +5,8 @@ using System.Linq;
 
 public class CircleBoard : MonoBehaviour {
 
-	List<WeightInfo> Weights = new List<WeightInfo>();
+	public static CircleBoard Instance { get; private set;}
+	public List<WeightInfo> Weights = new List<WeightInfo>();
 
 	public float RotateTime = 1.0f;
 	public float RationMassAngle = 2.0f;
@@ -18,7 +19,7 @@ public class CircleBoard : MonoBehaviour {
 
 	void Start () 
 	{
-	
+		Instance = this;
 	}
 	
 	void Update () 

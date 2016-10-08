@@ -6,6 +6,7 @@ using System.Linq;
 
 public class Board : MonoBehaviour 
 {
+	public static Board Instance { get; private set;}
 	public List<WeightInfo> listWeight = new List<WeightInfo> ();
 	public float RotateTime = 1.0f;
 	public float RationMassAngle = 2.0f;
@@ -18,7 +19,7 @@ public class Board : MonoBehaviour
 
 	void Start () 
 	{
-		
+		Instance = this;
 	}
 	
 	void Update () 
