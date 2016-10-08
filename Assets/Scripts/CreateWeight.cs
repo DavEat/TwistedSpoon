@@ -15,8 +15,8 @@ public class CreateWeight : MonoBehaviour {
     public void CreateObj(int _quantity, meshName _meshName, units _units, Vector3 position)
     {
         GameObject newWeight = Instantiate(weight, position, Quaternion.Euler(Vector3.zero)) as GameObject;
-        newWeight.GetComponent<WeightObjectInfo>().SetWeightInfo(new WeightInfo(_quantity, _meshName, _units));
-        GameObject mesh = Instantiate(Resources.Load("WeightMesh/" + newWeight.GetComponent<WeightObjectInfo>().GetWeightInfo().GetMeshName()), newWeight.transform) as GameObject;
+        newWeight.GetComponent<WeightInfo>().Init(_quantity, _meshName, _units);
+        GameObject mesh = Instantiate(Resources.Load("WeightMesh/" + newWeight.GetComponent<WeightInfo>().GetMeshName()), newWeight.transform) as GameObject;
         mesh.transform.localPosition = Vector3.zero;
 
         listWeight.Add(newWeight);
