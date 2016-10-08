@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+guid: 1204f1fe1173e424c96920c30ac8ac03
+timeCreated: 1475949695
+=======
 guid: 4759185ca026a7a4488254b24133737a
 timeCreated: 1475949995
+>>>>>>> b6f6ce5d467606e72896b1433abd72e77042d5fc
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -35,7 +40,11 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
+<<<<<<< HEAD
+    globalScale: 1
+=======
     globalScale: 10
+>>>>>>> b6f6ce5d467606e72896b1433abd72e77042d5fc
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
