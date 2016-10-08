@@ -18,6 +18,14 @@ public class DragAndDrop : MonoBehaviour {
             {
                 if(currentDragElement != null)
                 {
+                    Ray ray = new Ray(currentDragElement.localPosition, Vector3.down);
+                    RaycastHit hit;
+                    if (Physics.Raycast(ray, out hit, 100))
+                    {
+                        if (hit.transform.CompareTag("Weight"))
+                            Debug.Log("red");
+                        else currentDragElement.GetComponent<Rigidbody>().useGravity = true;
+                    }                        
                     currentDragElement.gameObject.layer = 0;
                     currentDragElement = null;
                 }               
@@ -40,9 +48,10 @@ public class DragAndDrop : MonoBehaviour {
         {
             if (currentDragElement == null)
             {
-                if (hit.transform.parent != null && hit.transform.parent.CompareTag("Weight"))
+                if (/*hit.transform.parent != null &&*/ hit.transform.CompareTag("Weight"))
                 {
-                    currentDragElement = hit.transform.parent;
+                    currentDragElement = hit.transform;
+                    currentDragElement.GetComponent<Rigidbody>().useGravity = false;
                     currentDragElement.gameObject.layer = 11;
                 }
             }

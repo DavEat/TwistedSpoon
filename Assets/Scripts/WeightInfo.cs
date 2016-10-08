@@ -27,9 +27,21 @@ public enum meshName
 
 public class WeightInfo : MonoBehaviour
 {
+    private bool upSide;
     private int quantity;
     private string meshName;
     private units unit;
+
+    private bool falling;
+
+    void Update()
+    {
+        if (falling)
+        {
+            /**/
+                
+        }
+    }
 
     public void Init(int _quantity, meshName _meshName, units _unit)
     {
@@ -39,12 +51,12 @@ public class WeightInfo : MonoBehaviour
     }
 
     //----- Getter Setter -----
-    public int GetWeight()
+    public int GetQuantity()
     {
         return this.quantity;
     }
 
-    public void SetWeight(int value)
+    public void SetQuantity(int value)
     {
         this.quantity = value;
     }
@@ -68,6 +80,16 @@ public class WeightInfo : MonoBehaviour
     public void SetUnit(units value)
     {
         this.unit = value;
+    }
+
+    public bool GetUpSide()
+    {
+        return this.upSide;
+    }
+
+    public void SetUpSide(bool value)
+    {
+        this.upSide = value;
     }
 }
 

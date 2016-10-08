@@ -9,7 +9,9 @@ public class CreateWeight : MonoBehaviour {
 
     void Start()
     {
-        CreateObj(50, meshName.Cube, units.kg, Vector3.zero);
+        CreateObj(1, meshName.Cube, units.kg, Vector3.zero);
+        CreateObj(1, meshName.Cube, units.kg, Vector3.one*2);
+        CreateObj(1, meshName.Cube, units.kg, Vector3.forward*2);
     }
 
     public void CreateObj(int _quantity, meshName _meshName, units _units, Vector3 position)
