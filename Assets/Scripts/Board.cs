@@ -50,7 +50,7 @@ public class Board : MonoBehaviour
 				} 
 				else 
 				{
-					UpSideMass += w.GetQuantity() * Mathf.Abs(w.transform.position.z / (transform.localScale.z / 2.0f));
+					UpSideMass += w.GetQuantity() * Mathf.Abs(w.transform.position.z / 9.5f);
 				}
 			}
 			else
@@ -61,7 +61,7 @@ public class Board : MonoBehaviour
 				} 
 				else 
 				{
-					DownSideMass += w.GetQuantity() * Mathf.Abs(-w.transform.position.z / (transform.localScale.z / 2.0f));
+					DownSideMass += w.GetQuantity() * Mathf.Abs(-w.transform.position.z / 9.5f);
 				}
 			}
 		}
