@@ -16,10 +16,18 @@ public class DragAndDrop : MonoBehaviour
     private LayerMask layerCube;  //--Check if we are not on a orther undrag cube--
 
     private bool inventory;
+    private GameObject mPopUp;
+
+    void Start()
+    {
+        mPopUp = GameObject.FindObjectOfType<PopUp>().gameObject;
+    }
 
     void Update()
     {
-    #if (UNITY_EDITOR || UNITY_STANDALONE_WIN)
+        Ray testray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        CheckUi(testray);
+#if (UNITY_EDITOR || UNITY_STANDALONE_WIN)
         if (Input.GetMouseButtonUp(0))  //---If release left click---
         {
             if (currentDragElement != null)
@@ -68,9 +76,31 @@ public class DragAndDrop : MonoBehaviour
                 CheckClick(ray);
             }
         }
+       
     #elif (UNITY_ANDROID || UNITY_IPHONE || UNITY_WP8)
             
     #endif
+    }
+
+    private void CheckUi(Ray ray)
+    {
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, 100, layerBoard))
+        {
+            if (currentDragElement == null)
+            {
+                if (/*hit.transform.parent != null &&*/ hit.transform.CompareTag("Weight"))
+                {
+                    mPopUp.SetActive(true);
+                    mPopUp.GetComponent<PopUp>().mtextMesh.text = hit.collider.transform.GetComponent<Weight_Mesh>().iQuantity.ToString() + hit.collider.transform.GetComponent<Weight_Mesh>().eUnits.ToString();
+                }
+            }
+        }
+        else
+        {
+            mPopUp.SetActive(false);
+        }
     }
 
     private void CheckClick(Ray ray)
