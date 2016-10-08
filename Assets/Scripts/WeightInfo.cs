@@ -32,7 +32,7 @@ public class WeightInfo : MonoBehaviour
     private string meshName;
     private units unit;
     private Transform parentInventary;
-    private float radius;
+    public float radius;
 
     public void Init(int _quantity, meshName _meshName, units _unit, Transform _parentInventary)
     {
