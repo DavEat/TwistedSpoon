@@ -6,6 +6,7 @@ using System.Linq;
 
 public class IA : MonoBehaviour {
 
+	public static IA Instance { get; private set;}
 	public enum BoardType
 	{
 		BoardType_Simple,
@@ -22,6 +23,7 @@ public class IA : MonoBehaviour {
 
 	void Start () 
 	{
+		Instance = this;
 		SpawningZoneTypeOne = transform.FindChild ("SpawnBoard").GetComponents<BoxCollider> ().ToList<BoxCollider>();
 		SpawningZoneTypeTwo = transform.FindChild ("SpawnCircle").gameObject;
 	}
@@ -30,7 +32,21 @@ public class IA : MonoBehaviour {
 	{
 		if(Input.GetKeyDown(KeyCode.E))
 		{
+			//SpawningtypeTwo ();
+		}
+	}
+
+	public void Play()
+	{
+		switch (boardType) 
+		{
+		case BoardType.BoardType_Simple:
+			SpawningtypeOne ();
+				break;
+
+		case BoardType.BoardType_Cylinder:
 			SpawningtypeTwo ();
+				break;
 		}
 	}
 
