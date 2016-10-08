@@ -29,7 +29,7 @@ public class DragAndDrop : MonoBehaviour
                      ray = new Ray(currentDragElement.localPosition, currentDragElement.rotation * Vector3.forward);
                 else ray = new Ray(currentDragElement.localPosition, Vector3.down);
                 RaycastHit hit;
-                //Debug.DrawRay(ray.origin, ray.direction * 100, Color.red, 10);
+                Debug.DrawRay(ray.origin, ray.direction * 100, Color.red, 10);
                 if (Physics.Raycast(ray, out hit, 100, layerCube))
                 {
                     if (hit.transform.CompareTag("Weight") || CheckPosition())
@@ -101,8 +101,8 @@ public class DragAndDrop : MonoBehaviour
                 else if (currentDragElement.localEulerAngles != Vector3.zero)
                 {
                     currentDragElement.localEulerAngles = Vector3.zero;
-                    if (!inventory)
-                        inventory = true;
+                    if (inventory)
+                        inventory = false;
                 }                    
                 currentDragElement.position = hit.point + new Vector3(0, heightDraElem, 0);
             }
