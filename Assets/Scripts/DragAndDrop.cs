@@ -22,35 +22,48 @@ public class DragAndDrop : MonoBehaviour
     #if (UNITY_EDITOR || UNITY_STANDALONE_WIN)
         if (Input.GetMouseButtonUp(0))  //---If release left click---
         {
+            
             if (currentDragElement != null)
             {
-                Ray ray;
-                if (inventory)
-                    ray = new Ray(currentDragElement.localPosition, currentDragElement.rotation * Vector3.forward);
-                else ray = new Ray(currentDragElement.localPosition, Vector3.down);
-                RaycastHit hit;
-
-                if (Physics.Raycast(ray, out hit, 100, layerCube))
+                if (!IA.CheckSpawnPosition(currentDragElement.position, IA.BoardType.BoardType_Simple))
                 {
-                    if (hit.transform.CompareTag("Weight") || CheckPosition())
+
+                    Debug.Log("red + alpha");
+                    currentDragElement.GetChild(0).gameObject.layer = 12;
+
+                    /*Ray ray;
+                    if (inventory)
+                        ray = new Ray(currentDragElement.localPosition, currentDragElement.rotation * Vector3.forward);
+                    else ray = new Ray(currentDragElement.localPosition, Vector3.down);
+                    RaycastHit hit;
+
+                    if (Physics.Raycast(ray, out hit, 100, layerCube))
                     {
-                        Debug.Log("red + alpha");
-                        currentDragElement.GetChild(0).gameObject.layer = 12;
-                    }
-                    else if (hit.transform.CompareTag("Green"))
-                    {
-                        if (currentDragElement.GetComponent<Rigidbody>().useGravity)
-                            currentDragElement.GetComponent<Rigidbody>().useGravity = false;
-                        currentDragElement.parent = currentDragElement.GetComponent<WeightInfo>().GetParentInventory();
-                        currentDragElement.localPosition = new Vector3(0, 0, 0/*currentDragElement.localPosition.z*/);
-                        currentDragElement.localEulerAngles = Vector3.zero;
-                        currentDragElement.GetChild(0).gameObject.layer = 0;
-                    }
-                    else
-                    {
-                        currentDragElement.GetComponent<Rigidbody>().useGravity = true;
-                        currentDragElement.GetChild(0).gameObject.layer = 0;
-                    }
+                        if (hit.transform.CompareTag("Weight"))
+                        {
+                            Debug.Log("red + alpha");
+                            currentDragElement.GetChild(0).gameObject.layer = 12;
+                        }
+                        else if (hit.transform.CompareTag("Green"))
+                        {
+                            if (currentDragElement.GetComponent<Rigidbody>().useGravity)
+                                currentDragElement.GetComponent<Rigidbody>().useGravity = false;
+                            currentDragElement.parent = currentDragElement.GetComponent<WeightInfo>().GetParentInventory();
+                            currentDragElement.localPosition = new Vector3(0, 0, 0/*currentDragElement.localPosition.z*//*);
+                     /*       currentDragElement.localEulerAngles = Vector3.zero;
+                            currentDragElement.GetChild(0).gameObject.layer = 0;
+                        }
+                        else
+                        {
+                            currentDragElement.GetComponent<Rigidbody>().useGravity = true;
+                            currentDragElement.GetChild(0).gameObject.layer = 0;
+                        }
+                    } */                   
+                }
+                else
+                {
+                    currentDragElement.GetComponent<Rigidbody>().useGravity = true;
+                    currentDragElement.GetChild(0).gameObject.layer = 0;
                 }
                 currentDragElement = null;
             }
@@ -76,7 +89,7 @@ public class DragAndDrop : MonoBehaviour
     private void CheckClick(Ray ray)
     {
         RaycastHit hit;
-        Debug.DrawRay(ray.origin, ray.direction * 100, Color.blue, 5);
+        //Debug.DrawRay(ray.origin, ray.direction * 100, Color.blue, 5);
         if (Physics.Raycast(ray, out hit, 100, layerBoard))
         {
             if (currentDragElement == null)
@@ -94,14 +107,7 @@ public class DragAndDrop : MonoBehaviour
             }
             else
             {
-                /*if (hit.transform.CompareTag("InventoryCase"))
-                {
-                    if (currentDragElement.localEulerAngles != new Vector3(50, 90, 0))
-                        currentDragElement.localEulerAngles = new Vector3(50, 90, 0);
-                    if (!inventory)
-                        inventory = true;
-                }
-                else */if (currentDragElement.localEulerAngles != Vector3.zero)
+                if (currentDragElement.localEulerAngles != Vector3.zero)
                 {
                     currentDragElement.localEulerAngles = Vector3.zero;
                     if (inventory)
@@ -114,7 +120,7 @@ public class DragAndDrop : MonoBehaviour
 
     private bool CheckPosition()
     {
-
+        
         return false;
     }
 }

@@ -89,7 +89,7 @@ public class IA : MonoBehaviour {
 		Instantiate (objectToInstantiate,RandomPos, Quaternion.identity);
 	}
 
-	bool CheckSpawnPosition( Vector3 position, BoardType type)
+	public static bool CheckSpawnPosition( Vector3 position, BoardType type)
 	{
 		RaycastHit hit;
 		if (Physics.Raycast(position, Vector3.down, out hit)) 
@@ -107,7 +107,7 @@ public class IA : MonoBehaviour {
 		return false;
 	}
 
-	bool CheckDistance(BoardType type, Vector3 pos)
+	private static bool CheckDistance(BoardType type, Vector3 pos)
 	{
 		List<WeightInfo> list;
 		if(type == BoardType.BoardType_Simple)
