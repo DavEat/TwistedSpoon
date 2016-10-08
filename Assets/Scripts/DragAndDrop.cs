@@ -19,14 +19,14 @@ public class DragAndDrop : MonoBehaviour
 
     void Update()
     {
-    #if (UNITY_EDITOR || UNITY_STANDALONE_WIN)
+#if (UNITY_EDITOR || UNITY_STANDALONE_WIN)
         if (Input.GetMouseButtonUp(0))  //---If release left click---
         {
             if (currentDragElement != null)
             {
                 Ray ray;
                 if (inventory)
-                     ray = new Ray(currentDragElement.localPosition, currentDragElement.rotation * Vector3.forward);
+                    ray = new Ray(currentDragElement.localPosition, currentDragElement.rotation * Vector3.forward);
                 else ray = new Ray(currentDragElement.localPosition, Vector3.down);
                 RaycastHit hit;
                 //Debug.DrawRay(ray.origin, ray.direction * 100, Color.red, 10);
@@ -56,17 +56,14 @@ public class DragAndDrop : MonoBehaviour
         }
         else if (Input.GetMouseButtonDown(0))
         {
-            Camera cameracurrent = gameObject.GetComponent<Camera>();
-            Ray ray = cameracurrent.ScreenPointToRay(Input.mousePosition);
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             CheckClick(ray);
         }
         else if (Input.GetMouseButton(0))
         {
             if (currentDragElement != null)
             {
-                Camera cameracurrent = gameObject.GetComponent<Camera>();
-
-                Ray ray = cameracurrent.ScreenPointToRay(Input.mousePosition);
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 CheckClick(ray);
             }
         }
@@ -79,8 +76,7 @@ public class DragAndDrop : MonoBehaviour
     {
         RaycastHit hit;
         Debug.DrawRay(ray.origin, ray.direction * 100, Color.blue, 5);
-        // if (Physics.Raycast(ray, out hit, 100, layerBoard))
-         if (Physics.Raycast(ray, out hit, 100))
+        if (Physics.Raycast(ray, out hit, 100, layerBoard))
         {
             if (currentDragElement == null)
             {
@@ -101,13 +97,13 @@ public class DragAndDrop : MonoBehaviour
                         currentDragElement.localEulerAngles = new Vector3(50, 90, 0);
                     if (!inventory)
                         inventory = true;
-                }                    
+                }
                 else if (currentDragElement.localEulerAngles != Vector3.zero)
                 {
                     currentDragElement.localEulerAngles = Vector3.zero;
                     if (inventory)
                         inventory = false;
-                }                    
+                }
                 currentDragElement.position = hit.point + new Vector3(0, heightDraElem, 0);
             }
         }
