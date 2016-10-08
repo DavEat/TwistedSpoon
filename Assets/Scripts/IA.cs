@@ -48,6 +48,7 @@ public class IA : MonoBehaviour {
 			SpawningtypeTwo ();
 				break;
 		}
+		GameManager.Instance.SwitchState (GameManager.GameState.GameState_PlayerTurn);
 	}
 
 	void SpawningtypeOne()

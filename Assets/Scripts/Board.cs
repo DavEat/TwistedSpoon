@@ -30,7 +30,6 @@ public class Board : MonoBehaviour
 				break;
 			case State.State_Rotate:
 			    RotateBoard(-MasseDifference);
-                BoardState = State.State_Wait;
 				break;
 		}
 	}
@@ -73,8 +72,14 @@ public class Board : MonoBehaviour
 
 	void RotateBoard( float angle)
 	{
-		Quaternion test = Quaternion.AngleAxis(angle,Vector3.left); // definier l'angle.
+		Quaternion test = Quaternion.AngleAxis(angle,Vector3.left);
 		StartCoroutine( RotateTo (test));
+
+		if(test == transform.localRotation)
+		{
+			BoardState = State.State_Wait;
+			GameManager.Instance.SwitchState(GameManager.GameState.GameState_IATurn);
+		}
 	}
 
 	void OnCollisionEnter( Collision col )
