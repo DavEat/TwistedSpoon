@@ -58,8 +58,8 @@ public class Scene : MonoBehaviour {
         {
             case 0:
                 {
-                    mBoardParent.gameObject.SetActive(false);
-                    mCircleBoardParent.SetActive(true);
+                    mBoardParent.gameObject.SetActive(true);
+                    mCircleBoardParent.SetActive(false);
 
                     mBoard.LeverArm = false;
                 }
@@ -102,11 +102,11 @@ public class Scene : MonoBehaviour {
 
     public void StartRotateBoard()
     {
-        /*if (mCurrentLevel >= 0)
+        if (mCurrentLevel >= 0)
         {
             mBoard.BoardState = Board.State.State_Rotate;
         }
-        else if (mCurrentLevel > 1)*/
+        else if (mCurrentLevel > 1)
         {
             mCircleBoard.BoardState = CircleBoard.State.State_Rotate;
         }

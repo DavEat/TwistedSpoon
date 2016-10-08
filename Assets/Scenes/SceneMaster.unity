@@ -285,7 +285,7 @@ Prefab:
     - target: {fileID: 114000013611130792, guid: be4cdfb2079375241a84b72e15f0e453,
         type: 2}
       propertyPath: BoardState
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000012946954176, guid: be4cdfb2079375241a84b72e15f0e453, type: 2}
       propertyPath: m_LocalScale.y
