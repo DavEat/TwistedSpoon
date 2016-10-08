@@ -15,6 +15,8 @@ public class DragAndDrop : MonoBehaviour
     [SerializeField]
     private LayerMask layerCube;  //--Check if we are not on a orther undrag cube--
 
+    private bool inventory;
+
     void Update()
     {
     #if (UNITY_EDITOR || UNITY_STANDALONE_WIN)
@@ -22,9 +24,12 @@ public class DragAndDrop : MonoBehaviour
         {
             if (currentDragElement != null)
             {
-                Ray ray = new Ray(currentDragElement.localPosition, Vector3.down);
+                Ray ray;
+                if (inventory)
+                     ray = new Ray(currentDragElement.localPosition, currentDragElement.rotation * Vector3.forward);
+                else ray = new Ray(currentDragElement.localPosition, Vector3.down);
                 RaycastHit hit;
-                Debug.DrawRay(ray.origin, ray.direction * 100, Color.red, 10);
+                //Debug.DrawRay(ray.origin, ray.direction * 100, Color.red, 10);
                 if (Physics.Raycast(ray, out hit, 100, layerCube))
                 {
                     if (hit.transform.CompareTag("Weight") || CheckPosition())
@@ -90,9 +95,15 @@ public class DragAndDrop : MonoBehaviour
                 {
                     if (currentDragElement.localEulerAngles != new Vector3(50, 90, 0))
                         currentDragElement.localEulerAngles = new Vector3(50, 90, 0);
+                    if (!inventory)
+                        inventory = true;
                 }                    
                 else if (currentDragElement.localEulerAngles != Vector3.zero)
+                {
                     currentDragElement.localEulerAngles = Vector3.zero;
+                    if (!inventory)
+                        inventory = true;
+                }                    
                 currentDragElement.position = hit.point + new Vector3(0, heightDraElem, 0);
             }
         }
@@ -100,6 +111,7 @@ public class DragAndDrop : MonoBehaviour
 
     private bool CheckPosition()
     {
+
         return false;
     }
 }
