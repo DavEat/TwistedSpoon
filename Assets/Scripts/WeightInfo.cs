@@ -34,9 +34,13 @@ public class WeightInfo : MonoBehaviour
     private Transform parentInventary;
     public float radius;
 
+<<<<<<< HEAD
     public AudioClip sound;
 
     public void Init(int _quantity, meshName _meshName, units _unit, Transform _parentInventary)
+=======
+    public void Init(int _quantity, string _meshName, units _unit, Transform _parentInventary)
+>>>>>>> 276a1ce5afcd8d1455a170f8bb1c36f9e1267ef9
     {
         this.quantity = _quantity;
         this.meshName = _meshName.ToString();

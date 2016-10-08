@@ -66,12 +66,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013132274026}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.02, z: 0}
+  m_LocalPosition: {x: 1.1899999, y: 1.7, z: 0.32000005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4000013205800812}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!4 &4000010825939912
 Transform:
   m_ObjectHideFlags: 1
@@ -84,7 +84,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4000013205800812}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!4 &4000013205800812
 Transform:
   m_ObjectHideFlags: 1
@@ -92,12 +92,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010616264786}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1.56, y: 0, z: -0.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 4000010825939912}
   - {fileID: 4000010568447434}
+  - {fileID: 4000010825939912}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!65 &65000013396468450
@@ -110,8 +110,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.9, y: 1, z: 6.5}
-  m_Center: {x: 0.14084077, y: 0, z: 0.16647768}
+  m_Size: {x: 4.9, y: 1, z: 5.5}
+  m_Center: {x: 0.14084077, y: 0, z: -1}
 --- !u!65 &65000014280367750
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -122,8 +122,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.9, y: 1, z: 6.5}
-  m_Center: {x: 0.1408408, y: 0, z: -9.562057}
+  m_Size: {x: 4.9, y: 1, z: 5.5}
+  m_Center: {x: 0.1408408, y: 0, z: -8}
 --- !u!114 &114000011172487278
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -132,7 +132,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000010616264786}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0787745c4e371f541a4a0db7aec75ace, type: 3}
+  m_Script: {fileID: 11500000, guid: fcce64471dc6f7a49bd02a8c0d2084db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   boardType: 0
