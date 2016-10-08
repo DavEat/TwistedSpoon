@@ -43,11 +43,11 @@ public class CircleBoard : MonoBehaviour {
 
 			if (!LeverArm) 
 			{
-				Mass = Weight.GetWeight();	
+				Mass = Weight.GetQuantity();	
 			} 
 			else 
 			{
-				Mass = Weight.GetWeight() * Mathf.Abs(Weight.transform.position.z / (transform.localScale.z / 2.0f));
+				Mass = Weight.GetQuantity() * Mathf.Abs(Weight.transform.position.z / (transform.localScale.z / 2.0f));
 			}
 			Mass /= RationMassAngle;
 
