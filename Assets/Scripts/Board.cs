@@ -10,6 +10,12 @@ public class Board : MonoBehaviour
 	public float RotateTime = 1.0f;
 	public float RationMassAngle = 2.0f;
 
+	public bool LeverArm = false;
+	public enum State {State_Wait, State_Rotate}
+	public State BoardState = State.State_Wait;
+
+	private float MasseDifference = 0.0f;
+
 	void Start () 
 	{
 		
@@ -17,12 +23,18 @@ public class Board : MonoBehaviour
 	
 	void Update () 
 	{
-	
+		switch(BoardState)
+		{
+			case State.State_Wait:
+				break;
+			case State.State_Rotate:
+			RotateBoard(-MasseDifference);
+				break;
+		}
 	}
 
 	void CheckMass ()
 	{
-		float Difference;
 		float UpSideMass = 0.0f;
 		float DownSideMass = 0.0f;
 
@@ -30,25 +42,31 @@ public class Board : MonoBehaviour
 		{
 			if(w.GetUpSide() )
 			{
-				UpSideMass += w.GetQuantity();	
+				if (!LeverArm) 
+				{
+					UpSideMass += w.GetQuantity();	
+				} 
+				else 
+				{
+					UpSideMass += w.GetQuantity() * Mathf.Abs(w.transform.position.z / (transform.localScale.z / 2.0f));
+				}
 			}
 			else
 			{
-				DownSideMass += w.GetQuantity();
+				if (!LeverArm) 
+				{
+					DownSideMass += w.GetQuantity();
+				} 
+				else 
+				{
+					DownSideMass += w.GetQuantity() * Mathf.Abs(-w.transform.position.z / (transform.localScale.z / 2.0f));
+				}
 			}
 		}
+		MasseDifference = Mathf.Abs( UpSideMass - DownSideMass );
+		MasseDifference /= RationMassAngle;
 
-		Difference = Mathf.Abs( UpSideMass - DownSideMass );
-		Difference /= RationMassAngle;
-
-		if(UpSideMass < DownSideMass)
-		{
-			RotateBoard(Difference);
-		}
-		else
-		{
-			RotateBoard(-Difference);
-		}
+		MasseDifference = (UpSideMass > DownSideMass) ? MasseDifference : -MasseDifference; 
 	}
 
 	void RotateBoard( float angle)
@@ -90,9 +108,8 @@ public class Board : MonoBehaviour
 	{
 		for(float t = 0;;t += Time.deltaTime / RotateTime)
 		{
-			transform.rotation = Quaternion.Lerp ( transform.rotation, Angle,t);
+			transform.localRotation = Quaternion.Lerp ( transform.rotation, Angle,t);
 			yield return new WaitForEndOfFrame();
 		}
-		yield return null;
 	}
 }
