@@ -17,7 +17,7 @@ public class DragAndDrop : MonoBehaviour {
     void Update ()
     {
         #if (UNITY_EDITOR || UNITY_STANDALONE_WIN)
-            if (Input.GetMouseButtonUp(0))
+            if (Input.GetMouseButtonUp(0))  //---If release left click---
             {
                 if(currentDragElement != null)
                 {
@@ -28,7 +28,6 @@ public class DragAndDrop : MonoBehaviour {
                         if (hit.transform.CompareTag("Weight"))
                         {
                             Debug.Log("red + alpha");
-                            //Physics.IgnoreCollision(currentDragElement.GetComponent<BoxCollider>(), );
                             currentDragElement.gameObject.layer = 12;
                         }                           
                         else
@@ -56,11 +55,14 @@ public class DragAndDrop : MonoBehaviour {
         Debug.DrawRay(ray.origin, ray.direction * 100, Color.blue);
         if (Physics.Raycast(ray, out hit, 100, layerBoard))
         {
+            Debug.Log("hit : " + hit.transform.name);
             if (currentDragElement == null)
             {
                 if (/*hit.transform.parent != null &&*/ hit.transform.CompareTag("Weight"))
                 {
                     currentDragElement = hit.transform;
+                    currentDragElement.parent = transform.parent;
+                    currentDragElement.localEulerAngles = Vector3.zero;
                     currentDragElement.GetComponent<Rigidbody>().useGravity = false;
                     currentDragElement.gameObject.layer = 11;
                 }
