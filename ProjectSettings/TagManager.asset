@@ -8,6 +8,7 @@ TagManager:
   - PlayerPosition
   - ButtonDiscussing
   - Weight
+  - InventoryCase
   layers:
   - Default
   - TransparentFX

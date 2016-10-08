@@ -25,6 +25,10 @@ public class CreateWeight : MonoBehaviour {
         foreach(GameObject w in listWeight)
             Physics.IgnoreCollision(newWeight.GetComponent<Collider>(), w.GetComponent<Collider>());
 
+        foreach(Transform t in listPosInventory[0].parent.GetComponent<ReplaceItemOfInventory>().GetListTarget())
+            Physics.IgnoreCollision(newWeight.GetComponent<Collider>(), t.GetChild(0).GetComponent<Collider>());
+
+
         newWeight.transform.parent = parentt;
         newWeight.transform.localEulerAngles = Vector3.zero;
         newWeight.transform.localScale = Vector3.one * 2;

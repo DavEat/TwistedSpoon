@@ -11,4 +11,9 @@ public class ReplaceItemOfInventory : MonoBehaviour {
 	    for(int i = 0; i < listT.Count; i++)
             listT[i].position = listTarget[i].position;
 	}
+
+    public List<Transform> GetListTarget()
+    {
+        return this.listTarget;
+    }
 }

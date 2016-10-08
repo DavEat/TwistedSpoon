@@ -24,7 +24,6 @@ GameObject:
   - 124: {fileID: 124000010366306926}
   - 81: {fileID: 81000010271320350}
   - 114: {fileID: 114000012062488070}
-  - 114: {fileID: 114000012323839612}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -111,20 +110,6 @@ MonoBehaviour:
   layerCube:
     serializedVersion: 2
     m_Bits: 4294963199
---- !u!114 &114000012323839612
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010372507740}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47dea66bd02f6e149905473d9316da79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weight: {fileID: 1000011115360848, guid: 06634eb7fff8a904baf23d63936ca968, type: 2}
-  listPosInventory: []
-  listWeight: []
 --- !u!124 &124000010366306926
 Behaviour:
   m_ObjectHideFlags: 1
