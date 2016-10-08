@@ -25,13 +25,13 @@ public enum meshName
     Cube
 }
 
-public class WeightInfo
+public class WeightInfo : MonoBehaviour
 {
     private int quantity;
     private string meshName;
     private units unit;
 
-    public WeightInfo(int _quantity, meshName _meshName, units _unit)
+    public void Init(int _quantity, meshName _meshName, units _unit)
     {
         this.quantity = _quantity;
         this.meshName = _meshName.ToString();
@@ -70,3 +70,4 @@ public class WeightInfo
         this.unit = value;
     }
 }
+
