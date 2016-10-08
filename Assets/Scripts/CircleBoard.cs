@@ -30,6 +30,7 @@ public class CircleBoard : MonoBehaviour {
 			break;
 		case State.State_Rotate:
 			RotateBoard(ToAngle);
+            BoardState = State.State_Wait;
 			break;
 		}
 	}
@@ -70,7 +71,7 @@ public class CircleBoard : MonoBehaviour {
 		if(weight != null)
 		{
 			weight.GetComponent<Rigidbody> ().isKinematic = true;
-			weight.transform.parent = this.transform;
+			weight.transform.parent = this.transform.parent;
 
 			Weights.Add (weight);
 			CheckMass ();
@@ -95,7 +96,7 @@ public class CircleBoard : MonoBehaviour {
 	{
 		for(float t = 0;;t += Time.deltaTime / RotateTime)
 		{
-			transform.localRotation = Quaternion.Lerp ( transform.rotation, Angle,t);
+            transform.parent.localRotation = Quaternion.Lerp ( transform.parent.localRotation, Angle,t);
 			yield return new WaitForEndOfFrame();
 		}
 	}

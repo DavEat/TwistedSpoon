@@ -29,7 +29,8 @@ public class Board : MonoBehaviour
 			case State.State_Wait:
 				break;
 			case State.State_Rotate:
-			RotateBoard(-MasseDifference);
+			    RotateBoard(-MasseDifference);
+                BoardState = State.State_Wait;
 				break;
 		}
 	}
@@ -84,7 +85,9 @@ public class Board : MonoBehaviour
 		{
             weight.SetUpSide((weight.transform.position.z > 0) ? true : false);            
             weight.GetComponent<Rigidbody> ().isKinematic = true;
-            weight.transform.parent = this.transform;            
+            weight.transform.parent = this.transform;
+            weight.transform.localRotation =  Quaternion.Euler(Vector3.zero);
+
 
             listWeight.Add (weight);
 			CheckMass ();

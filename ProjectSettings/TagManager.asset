@@ -9,6 +9,7 @@ TagManager:
   - ButtonDiscussing
   - Weight
   - InventoryCase
+  - Board
   layers:
   - Default
   - TransparentFX
