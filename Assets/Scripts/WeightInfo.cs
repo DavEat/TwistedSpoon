@@ -31,12 +31,15 @@ public class WeightInfo : MonoBehaviour
     private int quantity;
     private string meshName;
     private units unit;
+    private Transform parentInventary;
+    private float radius;
 
-    public void Init(int _quantity, meshName _meshName, units _unit)
+    public void Init(int _quantity, meshName _meshName, units _unit, Transform _parentInventary)
     {
         this.quantity = _quantity;
         this.meshName = _meshName.ToString();
         this.unit = _unit;
+        this.parentInventary = _parentInventary;
     }
 
     //----- Getter Setter -----
@@ -79,6 +82,26 @@ public class WeightInfo : MonoBehaviour
     public void SetUpSide(bool value)
     {
         this.upSide = value;
+    }
+
+    public Transform GetParentInventory()
+    {
+        return this.parentInventary;
+    }
+
+    public void SetParentInventory(Transform value)
+    {
+        this.parentInventary = value;
+    }
+
+    public float GetRadius()
+    {
+        return this.radius;
+    }
+
+    public void SetrRadius(float value)
+    {
+        this.radius = value;
     }
 }
 

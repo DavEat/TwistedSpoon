@@ -29,7 +29,7 @@ public class DragAndDrop : MonoBehaviour
                      ray = new Ray(currentDragElement.localPosition, currentDragElement.rotation * Vector3.forward);
                 else ray = new Ray(currentDragElement.localPosition, Vector3.down);
                 RaycastHit hit;
-                Debug.DrawRay(ray.origin, ray.direction * 100, Color.red, 10);
+                //Debug.DrawRay(ray.origin, ray.direction * 100, Color.red, 10);
                 if (Physics.Raycast(ray, out hit, 100, layerCube))
                 {
                     if (hit.transform.CompareTag("Weight") || CheckPosition())
@@ -37,11 +37,11 @@ public class DragAndDrop : MonoBehaviour
                         Debug.Log("red + alpha");
                         currentDragElement.gameObject.layer = 12;
                     }
-                    else if (hit.transform.CompareTag("InventoryCase"))
+                    else if (hit.transform.CompareTag("Green"))
                     {
                         if (currentDragElement.GetComponent<Rigidbody>().useGravity)
                             currentDragElement.GetComponent<Rigidbody>().useGravity = false;
-                        currentDragElement.parent = hit.transform.parent.GetComponent<Equivalent>().equivalentElem;
+                        currentDragElement.parent = currentDragElement.GetComponent<WeightInfo>().GetParentInventory();
                         currentDragElement.localPosition = new Vector3(0, 0, currentDragElement.localPosition.z);
                         currentDragElement.gameObject.layer = 0;
                     }
