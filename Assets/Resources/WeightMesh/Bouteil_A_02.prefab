@@ -121,5 +121,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iQuantity: 2
-  eUnits: 2
+  eUnits: 1
   aClip: {fileID: 0}
