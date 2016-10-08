@@ -32,17 +32,6 @@ public class WeightInfo : MonoBehaviour
     private string meshName;
     private units unit;
 
-    private bool falling;
-
-    void Update()
-    {
-        if (falling)
-        {
-            /**/
-                
-        }
-    }
-
     public void Init(int _quantity, meshName _meshName, units _unit)
     {
         this.quantity = _quantity;

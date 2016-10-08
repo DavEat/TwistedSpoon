@@ -9,9 +9,12 @@ public class DragAndDrop : MonoBehaviour {
     private float heightDraElem = 1;
 
     [SerializeField]
-    public LayerMask layer;
+    private LayerMask layerBoard;  //--Check if we are on the board--
 
-	void Update ()
+    [SerializeField]
+    private LayerMask layerCube;  //--Check if we are not on a orther undrag cube--
+
+    void Update ()
     {
         #if (UNITY_EDITOR || UNITY_STANDALONE_WIN)
             if (Input.GetMouseButtonUp(0))
@@ -20,13 +23,20 @@ public class DragAndDrop : MonoBehaviour {
                 {
                     Ray ray = new Ray(currentDragElement.localPosition, Vector3.down);
                     RaycastHit hit;
-                    if (Physics.Raycast(ray, out hit, 100))
+                    if (Physics.Raycast(ray, out hit, 100, layerCube))
                     {
                         if (hit.transform.CompareTag("Weight"))
-                            Debug.Log("red");
-                        else currentDragElement.GetComponent<Rigidbody>().useGravity = true;
+                        {
+                            Debug.Log("red + alpha");
+                            //Physics.IgnoreCollision(currentDragElement.GetComponent<BoxCollider>(), );
+                            currentDragElement.gameObject.layer = 12;
+                        }                           
+                        else
+                        {
+                            currentDragElement.GetComponent<Rigidbody>().useGravity = true;
+                            currentDragElement.gameObject.layer = 02;
+                        }
                     }                        
-                    currentDragElement.gameObject.layer = 0;
                     currentDragElement = null;
                 }               
             }
@@ -44,7 +54,7 @@ public class DragAndDrop : MonoBehaviour {
     {
         RaycastHit hit;
         Debug.DrawRay(ray.origin, ray.direction * 100, Color.blue);
-        if (Physics.Raycast(ray, out hit, 100, layer))
+        if (Physics.Raycast(ray, out hit, 100, layerBoard))
         {
             if (currentDragElement == null)
             {

@@ -65,7 +65,7 @@ public class Board : MonoBehaviour
 		{
             weight.SetUpSide((weight.transform.position.z > 0) ? true : false);            
             weight.GetComponent<Rigidbody> ().isKinematic = true;
-            weight.transform.parent = this.transform;
+            weight.transform.parent = this.transform;            
 
             listWeight.Add (weight);
 			CheckMass ();
@@ -81,7 +81,7 @@ public class Board : MonoBehaviour
 			w.transform.parent = null;
 			w.GetComponent<Rigidbody> ().isKinematic = false;
 
-			listWeight.Remove(w);
+            listWeight.Remove(w);
 			CheckMass ();
 		}
 	}
