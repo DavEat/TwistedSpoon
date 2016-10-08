@@ -6,3 +6,4 @@ Temp/
 *.userprefs
 *.csproj
 *.sln
+.vs/
