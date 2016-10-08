@@ -17,7 +17,7 @@ public class DragAndDrop : MonoBehaviour
 
     void Update()
     {
-#if (UNITY_EDITOR || UNITY_STANDALONE_WIN)
+    #if (UNITY_EDITOR || UNITY_STANDALONE_WIN)
         if (Input.GetMouseButtonUp(0))  //---If release left click---
         {
             if (currentDragElement != null)
@@ -27,7 +27,7 @@ public class DragAndDrop : MonoBehaviour
                 Debug.DrawRay(ray.origin, ray.direction * 100, Color.red, 10);
                 if (Physics.Raycast(ray, out hit, 100, layerCube))
                 {
-                    if (hit.transform.CompareTag("Weight"))
+                    if (hit.transform.CompareTag("Weight") || CheckPosition())
                     {
                         Debug.Log("red + alpha");
                         currentDragElement.gameObject.layer = 12;
@@ -96,5 +96,10 @@ public class DragAndDrop : MonoBehaviour
                 currentDragElement.position = hit.point + new Vector3(0, heightDraElem, 0);
             }
         }
+    }
+
+    private bool CheckPosition()
+    {
+        return false;
     }
 }
