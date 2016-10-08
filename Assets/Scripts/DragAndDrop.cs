@@ -56,14 +56,17 @@ public class DragAndDrop : MonoBehaviour
         }
         else if (Input.GetMouseButtonDown(0))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Camera cameracurrent = gameObject.GetComponent<Camera>();
+            Ray ray = cameracurrent.ScreenPointToRay(Input.mousePosition);
             CheckClick(ray);
         }
         else if (Input.GetMouseButton(0))
         {
             if (currentDragElement != null)
             {
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                Camera cameracurrent = gameObject.GetComponent<Camera>();
+
+                Ray ray = cameracurrent.ScreenPointToRay(Input.mousePosition);
                 CheckClick(ray);
             }
         }
@@ -75,8 +78,9 @@ public class DragAndDrop : MonoBehaviour
     private void CheckClick(Ray ray)
     {
         RaycastHit hit;
-        Debug.DrawRay(ray.origin, ray.direction * 100, Color.blue);
-        if (Physics.Raycast(ray, out hit, 100, layerBoard))
+        Debug.DrawRay(ray.origin, ray.direction * 100, Color.blue, 5);
+        // if (Physics.Raycast(ray, out hit, 100, layerBoard))
+         if (Physics.Raycast(ray, out hit, 100))
         {
             if (currentDragElement == null)
             {
