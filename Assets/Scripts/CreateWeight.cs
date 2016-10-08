@@ -8,14 +8,22 @@ public class CreateWeight : MonoBehaviour {
     [SerializeField]
     private List<Transform> listPosInventory;
     public List<GameObject> listWeight;
+    public List<GameObject> listMesh;
 
     void Start()
     {
+
+
         foreach (Transform t in listPosInventory)
-            CreateObj(10, meshName.Cube, units.kg, t);
+        {
+            int iRandom = Random.Range(0, listWeight.Count);
+            int iQuantity = listMesh[iRandom].GetComponent<Weight_Mesh>().iQuantity;
+            units eUnits = listMesh[iRandom].GetComponent<Weight_Mesh>().eUnits;
+            CreateObj(iQuantity, listMesh[iRandom].name, eUnits, t);
+        }
     }
 
-    public void CreateObj(int _quantity, meshName _meshName, units _units, Transform parentt)
+    public void CreateObj(int _quantity, string _meshName, units _units, Transform parentt)
     {
         GameObject newWeight = Instantiate(weight) as GameObject;
         newWeight.GetComponent<WeightInfo>().Init(_quantity, _meshName, _units, parentt);
