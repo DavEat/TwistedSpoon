@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-	void SwitchState ( GameState newState)
+	public void SwitchState ( GameState newState)
 	{
 		gameState = newState;
 		switch (gameState) 

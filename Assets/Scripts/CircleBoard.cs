@@ -30,7 +30,6 @@ public class CircleBoard : MonoBehaviour {
 			break;
 		case State.State_Rotate:
 			RotateBoard(ToAngle);
-            BoardState = State.State_Wait;
 			break;
 		}
 	}
@@ -62,6 +61,12 @@ public class CircleBoard : MonoBehaviour {
 	void RotateBoard( Quaternion angle)
 	{
 		StartCoroutine( RotateTo (ToAngle));
+
+		if(ToAngle == transform.localRotation)
+		{
+			BoardState = State.State_Wait;
+			GameManager.Instance.SwitchState(GameManager.GameState.GameState_IATurn);
+		}
 	}
 
 	void OnCollisionEnter( Collision col )

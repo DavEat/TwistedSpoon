@@ -7,7 +7,7 @@ public class Scene : MonoBehaviour {
     // This 4 levels 
     // and the same Scene ever 
 
-    int mCurrentLevel = 0;
+    public int mCurrentLevel = 0;
 
     Board 
         mBoard; 
