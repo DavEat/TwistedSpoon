@@ -112,7 +112,7 @@ public class Board : MonoBehaviour
 	{
 		for(float t = 0;;t += Time.deltaTime / RotateTime)
 		{
-			transform.localRotation = Quaternion.Lerp ( transform.rotation, Angle,t);
+			transform.localRotation = Quaternion.Lerp (transform.rotation, Angle, t);
 			yield return new WaitForEndOfFrame();
 		}
 	}

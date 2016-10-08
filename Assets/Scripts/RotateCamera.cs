@@ -3,13 +3,16 @@ using System.Collections;
 
 public class RotateCamera : MonoBehaviour {
 
-    public bool canRotate, firstStat;
+    private bool firstStat;
     private Vector2 atClick ,firstpoint, secondpoint;
     private float xAngTemp, yAngTemp, xAngle, yAngle;
 
+    [SerializeField]
+    private DragAndDrop drag;
+
     void Update()
     {
-        if (canRotate)
+        if (!drag.currentDragElement)
         {
             //Check count touches
             if (Input.GetMouseButton(0))

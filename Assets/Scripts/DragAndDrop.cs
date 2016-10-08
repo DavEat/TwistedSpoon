@@ -3,8 +3,8 @@ using System.Collections;
 
 public class DragAndDrop : MonoBehaviour
 {
-
-    private Transform currentDragElement = null;
+    [HideInInspector]
+    public Transform currentDragElement = null;
 
     [SerializeField]
     private float heightDraElem = 1;
@@ -21,50 +21,36 @@ public class DragAndDrop : MonoBehaviour
     {
     #if (UNITY_EDITOR || UNITY_STANDALONE_WIN)
         if (Input.GetMouseButtonUp(0))  //---If release left click---
-        {
-            
+        {            
             if (currentDragElement != null)
             {
-                if (!IA.CheckSpawnPosition(currentDragElement.position, IA.BoardType.BoardType_Simple))
-                {
+                Ray ray;
+                if (inventory)
+                    ray = new Ray(currentDragElement.localPosition, currentDragElement.rotation * Vector3.forward);
+                else ray = new Ray(currentDragElement.localPosition, Vector3.down);
+                RaycastHit hit;
 
-                    Debug.Log("red + alpha");
-                    currentDragElement.GetChild(0).gameObject.layer = 12;
-
-                    /*Ray ray;
-                    if (inventory)
-                        ray = new Ray(currentDragElement.localPosition, currentDragElement.rotation * Vector3.forward);
-                    else ray = new Ray(currentDragElement.localPosition, Vector3.down);
-                    RaycastHit hit;
-
-                    if (Physics.Raycast(ray, out hit, 100, layerCube))
+                if (Physics.Raycast(ray, out hit, 100, layerCube))
+                    if (hit.transform.CompareTag("Green"))
                     {
-                        if (hit.transform.CompareTag("Weight"))
-                        {
-                            Debug.Log("red + alpha");
-                            currentDragElement.GetChild(0).gameObject.layer = 12;
-                        }
-                        else if (hit.transform.CompareTag("Green"))
-                        {
-                            if (currentDragElement.GetComponent<Rigidbody>().useGravity)
-                                currentDragElement.GetComponent<Rigidbody>().useGravity = false;
-                            currentDragElement.parent = currentDragElement.GetComponent<WeightInfo>().GetParentInventory();
-                            currentDragElement.localPosition = new Vector3(0, 0, 0/*currentDragElement.localPosition.z*//*);
-                     /*       currentDragElement.localEulerAngles = Vector3.zero;
-                            currentDragElement.GetChild(0).gameObject.layer = 0;
-                        }
-                        else
-                        {
-                            currentDragElement.GetComponent<Rigidbody>().useGravity = true;
-                            currentDragElement.GetChild(0).gameObject.layer = 0;
-                        }
-                    } */                   
-                }
-                else
-                {
-                    currentDragElement.GetComponent<Rigidbody>().useGravity = true;
-                    currentDragElement.GetChild(0).gameObject.layer = 0;
-                }
+                        if (currentDragElement.GetComponent<Rigidbody>().useGravity)
+                            currentDragElement.GetComponent<Rigidbody>().useGravity = false;
+
+                        currentDragElement.parent = currentDragElement.GetComponent<WeightInfo>().GetParentInventory();
+                        currentDragElement.localPosition = Vector3.zero;
+                        currentDragElement.localEulerAngles = Vector3.zero;
+                        currentDragElement.GetChild(0).gameObject.layer = 0;
+                    }
+                    else if (!IA.CheckSpawnPosition(currentDragElement.position, IA.BoardType.BoardType_Simple))
+                    {
+                        Debug.Log("red + alpha");
+                        currentDragElement.GetChild(0).gameObject.layer = 12;
+                    }
+                    else
+                    {
+                        currentDragElement.GetComponent<Rigidbody>().useGravity = true;
+                        currentDragElement.GetChild(0).gameObject.layer = 0;
+                    }
                 currentDragElement = null;
             }
         }
@@ -116,11 +102,5 @@ public class DragAndDrop : MonoBehaviour
                 currentDragElement.position = hit.point + new Vector3(0, heightDraElem, 0);
             }
         }
-    }
-
-    private bool CheckPosition()
-    {
-        
-        return false;
     }
 }
