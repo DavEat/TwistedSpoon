@@ -6,7 +6,7 @@ using System.Linq;
 
 public class Board : MonoBehaviour 
 {
-	public List<Poid> poidsOnBoard = new List<Poid> ();
+	public List<WeightInfo> listWeight = new List<WeightInfo> ();
 	public float RotateTime = 1.0f;
 	public float RationMassAngle = 2.0f;
 
@@ -38,28 +38,28 @@ public class Board : MonoBehaviour
 		float UpSideMass = 0.0f;
 		float DownSideMass = 0.0f;
 
-		foreach(Poid poid in poidsOnBoard)
+		foreach(WeightInfo w in listWeight)
 		{
-			if( poid.upSide )
+			if(w.GetUpSide() )
 			{
 				if (!LeverArm) 
 				{
-					UpSideMass += poid.mass;	
+					UpSideMass += w.GetQuantity();	
 				} 
 				else 
 				{
-					UpSideMass += poid.mass * Mathf.Abs(poid.transform.position.z / (transform.localScale.z / 2.0f));
+					UpSideMass += w.GetQuantity() * Mathf.Abs(w.transform.position.z / (transform.localScale.z / 2.0f));
 				}
 			}
 			else
 			{
 				if (!LeverArm) 
 				{
-					DownSideMass += poid.mass;
+					DownSideMass += w.GetQuantity();
 				} 
 				else 
 				{
-					DownSideMass += poid.mass * Mathf.Abs(-poid.transform.position.z / (transform.localScale.z / 2.0f));
+					DownSideMass += w.GetQuantity() * Mathf.Abs(-w.transform.position.z / (transform.localScale.z / 2.0f));
 				}
 			}
 		}
@@ -77,29 +77,29 @@ public class Board : MonoBehaviour
 
 	void OnCollisionEnter( Collision col )
 	{
-		Poid poid = col.transform.GetComponent<Poid>();
+        WeightInfo weight = col.transform.GetComponent<WeightInfo>();
 
-		if(poid != null)
+		if(weight != null)
 		{
-			poid.GetComponent<Rigidbody> ().isKinematic = true;
-			poid.upSide = (poid.transform.position.z > 0) ? true : false;
-			poid.transform.parent = this.transform;
+            weight.SetUpSide((weight.transform.position.z > 0) ? true : false);            
+            weight.GetComponent<Rigidbody> ().isKinematic = true;
+            weight.transform.parent = this.transform;            
 
-			poidsOnBoard.Add (poid);
+            listWeight.Add (weight);
 			CheckMass ();
 		}	
 	}
 
 	void OnCollisionExit( Collision col )
 	{
-		Poid poid = col.transform.GetComponent<Poid>();
+		WeightInfo w = col.transform.GetComponent<WeightInfo>();
 
-		if (poid != null) 
+		if (w != null) 
 		{
-			poid.transform.parent = null;
-			poid.GetComponent<Rigidbody> ().isKinematic = false;
+			w.transform.parent = null;
+			w.GetComponent<Rigidbody> ().isKinematic = false;
 
-			poidsOnBoard.Remove(poid);
+            listWeight.Remove(w);
 			CheckMass ();
 		}
 	}
