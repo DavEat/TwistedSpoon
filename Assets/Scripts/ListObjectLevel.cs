@@ -19,6 +19,10 @@ public class ListObjectLevel : MonoBehaviour {
     {
 		return Create(listOrdi[indexOrdi++ % listOrdi.Count]);
     }
+    public WeightJustInfo GetCurrentOrdiInfo()
+    {
+        return listOrdi[indexOrdi % listOrdi.Count];
+    }
 
     private GameObject Create(WeightJustInfo info)
     {

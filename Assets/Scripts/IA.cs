@@ -19,13 +19,18 @@ public class IA : MonoBehaviour {
 	public GameObject SpawningZoneTypeTwo;
 
 	public GameObject objectToInstantiate;
-	public float radiusZoneTwo = 10.0f;
+	public GameObject weight;
+    public float radiusZoneTwo = 10.0f;
 
-	private ListObjectLevel listObject;
+    public Scene mScene;
+    public CreateWeight mCreateWeight;
+    private ListObjectLevel listObject;
 
 	void Start () 
 	{
-		Instance = this;
+        mCreateWeight = GameObject.FindObjectOfType<CreateWeight>();
+        mScene = GameObject.FindObjectOfType<Scene>();
+        Instance = this;
 		listObject = GameObject.FindGameObjectWithTag ("ListObject").GetComponent<ListObjectLevel> ();
 		SpawningZoneTypeOne = transform.FindChild ("SpawnBoard").GetComponents<BoxCollider> ().ToList<BoxCollider>();
 		SpawningZoneTypeTwo = transform.FindChild ("SpawnCircle").gameObject;
@@ -53,9 +58,10 @@ public class IA : MonoBehaviour {
 				break;
 		}
 		GameManager.Instance.SwitchState (GameManager.GameState.GameState_PlayerTurn);
-	}
+        mScene.StartRotateBoard();
+    }
 
-	void SpawningtypeOne()
+    void SpawningtypeOne()
 	{
 		Vector3 RandomPos = Vector3.zero;
 		BoxCollider col = SpawningZoneTypeOne[0];
@@ -65,21 +71,42 @@ public class IA : MonoBehaviour {
 			col = SpawningZoneTypeOne [Random.Range(0, SpawningZoneTypeOne.Count)];
 		}
 
-		RandomPos = new Vector3 (col.gameObject.transform.position.x + col.center.x + Random.Range (-col.size.x / 2.0f, col.size.x / 2.0f),
+		RandomPos = new Vector3 (col.center.x + Random.Range (-col.size.x / 2.0f, col.size.x / 2.0f),
 								col.center.y,
-								col.gameObject.transform.position.z + col.center.z + Random.Range (-col.size.z / 2.0f, col.size.z /2.0f));
+								col.center.z + Random.Range (-col.size.z , col.size.z ));
 		
 		while (!CheckSpawnPosition (RandomPos, BoardType.BoardType_Simple)) 
 		{
-			RandomPos = new Vector3 (col.gameObject.transform.position.x + col.center.x + Random.Range (-col.size.x / 2.0f, col.size.x / 2.0f),
+			RandomPos = new Vector3 (col.center.x + Random.Range (-col.size.x / 2.0f, col.size.x / 2.0f),
 									col.center.y,
-									col.gameObject.transform.position.z + col.center.z + Random.Range (-col.size.z / 2.0f, col.size.z /2.0f));
+									col.center.z + Random.Range (-col.size.z , col.size.z ));
 		}
-		GameObject newobj = Instantiate (objectToInstantiate,RandomPos, Quaternion.identity) as GameObject;
-        newobj.GetComponent<Rigidbody>().useGravity = true;
-        newobj.GetComponent<Rigidbody>().isKinematic = false;
+
+
+
+        WeightJustInfo wInfo = listObject.GetCurrentOrdiInfo();
+
+    //    GameObject newWeight = Instantiate(weight) as GameObject;
+        //newWeight.GetComponent<WeightInfo>().Init(_quantity, _meshName, _units, parentt);
+        GameObject mesh = Instantiate(objectToInstantiate, RandomPos, Quaternion.identity) as GameObject ;
+        mesh.GetComponent<WeightInfo>().Init(wInfo.quantity, wInfo.meshName, wInfo.unit);
+        mesh.transform.localPosition = RandomPos;
+
+        mesh.transform.localEulerAngles = Vector3.zero;
+        //   newWeight.transform.localScale = Vector3.one * 2;
+     //   mesh.transform.localPosition = Vector3.zero ;
+
+        mCreateWeight.listWeight.Add(mesh);
+
+        mCreateWeight.IgnoreCol(mesh);
+
+        // Instantiate(objectToInstantiate, RandomPos, Quaternion.identity);
+
+        mesh.GetComponent<Rigidbody>().useGravity = true;
+        mesh.GetComponent<Rigidbody>().isKinematic = false;
         //newobj.GetComponent<WeightInfo>().placeByPlayer = false;
-        listObject.listAllObject.Add(newobj);
+        listObject.listAllObject.Add(mesh);
+
     }
 
 	void SpawningtypeTwo()

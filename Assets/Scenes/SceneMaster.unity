@@ -3433,7 +3433,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mCurrentLevel: 0
   mChanceMaxPlay: 2
-  mMaxTurn: 1
+  mMaxTurn: 3
   mTweakValueAngle: 5
   mTweakAngleMax: 8
 --- !u!1 &1654772463
