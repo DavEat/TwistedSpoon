@@ -96,7 +96,7 @@ public class IA : MonoBehaviour {
         //   newWeight.transform.localScale = Vector3.one * 2;
      //   mesh.transform.localPosition = Vector3.zero ;
 
-        mCreateWeight.listWeight.Add(mesh);
+     //   mCreateWeight.listWeight.Add(mesh);
 
         mCreateWeight.IgnoreCol(mesh);
 
