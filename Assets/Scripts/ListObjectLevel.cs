@@ -24,11 +24,36 @@ public class ListObjectLevel : MonoBehaviour {
 
     void Start()
     {
+        WeightInfo w = new WeightInfo();
+
         //-----Player List-----
-        listPlayer.Add(new WeightInfo(10, "Cube", units.g));
+        w.Init(10, "Bouteil_A_01", units.g);
+        listPlayer.Add(w);
+        w.Init(10, "Bouteil_A_01", units.g);
+        listPlayer.Add(w);
+        w.Init(10, "Bouteil_A_01", units.g);
+        listPlayer.Add(w);
+        w.Init(10, "Bouteil_A_01", units.g);
+        listPlayer.Add(w);
+        w.Init(10, "Bouteil_A_01", units.g);
+        listPlayer.Add(w);
+        w.Init(10, "Bouteil_A_01", units.g);
+        listPlayer.Add(w);
 
 
         //-----Orid List -----
-        listOrdi.Add(new WeightInfo(10, "Cube", units.g));
+        w.Init(10, "Bouteil_A_01", units.g);
+        listPlayer.Add(w);
+        w.Init(10, "Bouteil_A_01", units.g);
+        listPlayer.Add(w);
+        w.Init(10, "Bouteil_A_01", units.g);
+        listPlayer.Add(w);
+        w.Init(10, "Bouteil_A_01", units.g);
+        listPlayer.Add(w);
+        w.Init(10, "Bouteil_A_01", units.g);
+        listPlayer.Add(w);
+        w.Init(10, "Bouteil_A_01", units.g);
+        listPlayer.Add(w);
+
     }
 }

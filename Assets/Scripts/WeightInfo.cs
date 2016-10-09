@@ -36,7 +36,7 @@ public class WeightInfo : MonoBehaviour
 
     public AudioClip sound;
 
-    public WeightInfo(int _quantity, string _meshName, units _unit)
+    public void Init(int _quantity, string _meshName, units _unit)
     {
         this.quantity = _quantity;
         this.meshName = _meshName.ToString();

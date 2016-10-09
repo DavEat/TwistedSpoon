@@ -17,20 +17,19 @@ public class CreateWeight : MonoBehaviour {
         int iLastRandom = Random.Range(0, listMesh.Count);
         foreach (Transform t in listPosInventory)
         {
-            if (iLastRandom <= listMesh.Count / 2)
+            /*if (iLastRandom <= listMesh.Count / 2)
                 iLastRandom = Random.Range(iLastRandom, listMesh.Count);
             else
                 iLastRandom = Random.Range(0, iLastRandom);
 
             int iQuantity = listMesh[iLastRandom].GetComponent<Weight_Mesh>().iQuantity;
             units eUnits = listMesh[iLastRandom].GetComponent<Weight_Mesh>().eUnits;
-            CreateObj(iQuantity, listMesh[iLastRandom].name, eUnits, t);
+            CreateObj(iQuantity, listMesh[iLastRandom].name, eUnits, t);*/
+
+            CreateObj(t);
         }
 
-        foreach (GameObject w in listWeight)
-            foreach (GameObject x in listWeight)
-                if (w != x)
-                    Physics.IgnoreCollision(w.GetComponent<Collider>(), x.transform.GetChild(0).GetComponent<Collider>());
+        
     }
 
     public void CreateObj(int _quantity, string _meshName, units _units, Transform parentt)
@@ -65,5 +64,14 @@ public class CreateWeight : MonoBehaviour {
         newWeight.transform.localPosition = Vector3.zero + new Vector3(0, 0, -1.5f);
 
         listWeight.Add(newWeight);
+
+        IgnoreCol(newWeight);
+    }
+
+    public void IgnoreCol(GameObject w)
+    {
+        foreach (GameObject x in listWeight)
+            if (w != x)
+                Physics.IgnoreCollision(w.GetComponent<Collider>(), x.transform.GetChild(0).GetComponent<Collider>());
     }
 }
