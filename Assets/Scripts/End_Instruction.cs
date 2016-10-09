@@ -15,7 +15,8 @@ public class End_Instruction : StateMachineBehaviour {
 
 	// OnStateExit is called when a transition ends and the state machine finishes evaluating this state
 	override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-		GameManager.Instance.SwitchState(GameManager.GameState.GameState_IATurn);
+		GameManager.Instance.LaunchGame ();
+		Amb.Instance.PlayAmbianteSound ();
 	}
 
 	// OnStateMove is called right after Animator.OnAnimatorMove(). Code that processes and affects root motion should be implemented here

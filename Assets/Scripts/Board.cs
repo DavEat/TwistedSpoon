@@ -78,6 +78,7 @@ public class Board : MonoBehaviour
 		if(test == transform.localRotation)
 		{
 			BoardState = State.State_Wait;
+			// Donne l'objet a l'ia
 			GameManager.Instance.SwitchState(GameManager.GameState.GameState_IATurn);
 		}
 	}

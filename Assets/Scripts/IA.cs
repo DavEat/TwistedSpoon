@@ -48,6 +48,7 @@ public class IA : MonoBehaviour {
 			SpawningtypeTwo ();
 				break;
 		}
+		// remplie la selection d'objet dans l'ui.
 		GameManager.Instance.SwitchState (GameManager.GameState.GameState_PlayerTurn);
 	}
 
