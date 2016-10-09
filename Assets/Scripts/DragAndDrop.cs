@@ -92,6 +92,9 @@ public class DragAndDrop : MonoBehaviour
                 if (/*hit.transform.parent != null &&*/ hit.transform.CompareTag("Weight"))
                 {
                     mPopUp.SetActive(true);
+                   PopUp test =  mPopUp.GetComponent<PopUp>();
+                   Weight_Mesh test2 =  hit.collider.transform.GetComponent<Weight_Mesh>();
+
                     mPopUp.GetComponent<PopUp>().mtextMesh.text = hit.collider.transform.GetComponent<Weight_Mesh>().iQuantity.ToString() + hit.collider.transform.GetComponent<Weight_Mesh>().eUnits.ToString();
                 }
             }

@@ -7,7 +7,14 @@ public class PopUp : MonoBehaviour {
     GameObject mMesh;
    public Text mtextMesh;
     public Vector3 Offset;
-	// Use this for initialization
+    // Use this for initialization
+
+    void Start()
+    {
+        if( mtextMesh == null )
+        mtextMesh   =   GetComponentInChildren<Text>();
+    }
+
 	void Update ()
     {
         transform.LookAt(Camera.main.transform);
