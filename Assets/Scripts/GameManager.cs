@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour {
 		if(!GameIsLaunched)
 		{
 			GameIsLaunched = true;
+			Amb.Instance.PlayAmbianteSound ();
 			SwitchState(GameState.GameState_IATurn);
 		}
 	}

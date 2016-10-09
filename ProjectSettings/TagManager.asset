@@ -12,6 +12,7 @@ TagManager:
   - Board
   - Green
   - BoardRotation
+  - ListObject
   layers:
   - Default
   - TransparentFX
