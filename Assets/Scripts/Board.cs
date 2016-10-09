@@ -16,7 +16,7 @@ public class Board : MonoBehaviour
 	public State BoardState = State.State_Wait;
 
 	private float MasseDifference = 0.0f;
-	private AudioSource audioSource;
+	public AudioSource audioSource;
 
     Scene
         mScene;
