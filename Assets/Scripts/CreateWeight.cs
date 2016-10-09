@@ -12,7 +12,7 @@ public class CreateWeight : MonoBehaviour {
     public List<GameObject> listWeight;
     public List<GameObject> listMesh;
 
-    void Start()
+    public void Start()
     {
         int iLastRandom = Random.Range(0, listMesh.Count);
         foreach (Transform t in listPosInventory)

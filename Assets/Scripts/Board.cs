@@ -132,4 +132,12 @@ public class Board : MonoBehaviour
 			yield return new WaitForEndOfFrame();
 		}
 	}
+
+    public void ReStartLevel()
+    {
+        foreach (WeightInfo weight in listWeight)
+        {
+            Destroy(weight.gameObject);
+        }
+    }
 }

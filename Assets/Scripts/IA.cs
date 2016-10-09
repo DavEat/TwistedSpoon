@@ -41,7 +41,8 @@ public class IA : MonoBehaviour {
 
 	public void Play()
 	{
-		objectToInstantiate = listObject.GetNextOrdiObject ().gameObject; 
+
+      //  objectToInstantiate = listObject.GetNextOrdiObject ().gameObject; 
 		switch (boardType) 
 		{
 		case BoardType.BoardType_Simple:

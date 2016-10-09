@@ -68,6 +68,8 @@ public class GameManager : MonoBehaviour {
 				break;
             case GameState.GameState_Loose:
                 mCanvasAnimator.SetTrigger("LOSE");
+                mScene.ReStartLevel();
+
                 break;
             case GameState.GameState_Win:
                 mCanvasAnimator.SetTrigger("WIN");

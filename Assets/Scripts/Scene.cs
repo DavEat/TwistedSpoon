@@ -14,9 +14,11 @@ public class Scene : MonoBehaviour {
 
     public float mTweakValueAngle = 7.0f;
     public float mTweakAngleMax = 12.0f;
-
+    CreateWeight
+        mCreateWeight;
     Board
         mBoard;
+
     CircleBoard
         mCircleBoard;
 
@@ -33,6 +35,7 @@ public class Scene : MonoBehaviour {
     {
         mBoard = GameObject.FindObjectOfType<Board>();
         mCircleBoard = GameObject.FindObjectOfType<CircleBoard>();
+        mCreateWeight = GameObject.FindObjectOfType<CreateWeight>();
 
         mBoardParent = FindParentWithTag(mBoard.transform, "Board").gameObject;
         mCircleBoardParent = FindParentWithTag(mCircleBoard.transform, "Board").gameObject;
@@ -128,32 +131,36 @@ public class Scene : MonoBehaviour {
     public void ChangeLevel()
     {
         mCurrentLevel++;
+        ReStartLevel();
         Init();
     }
 
     public void CheckRotationPlayLeft(float f_Angle)
+    {
+        if (f_Angle > mTweakAngleMax)
         {
-            if (f_Angle > mTweakAngleMax)
+            if (mChanceToPlay > 0 )
             {
-                if (mChanceToPlay > 0 )
-                {
-                    // :: You can Play AGAIN
-                    mChanceToPlay--; 
-                }
-                else
-                {
-                // :: LOOSE
-                GameManager.Instance.SwitchState(GameManager.GameState.GameState_Loose);
-                }
+                // :: You can Play AGAIN
+                mChanceToPlay--; 
             }
-            else 
+            else
             {
-                 // :: Win Next Turn
-                mCurrentTurn++;
-                GameManager.Instance.SwitchState(GameManager.GameState.GameState_IATurn);
+            // :: LOOSE
+            GameManager.Instance.SwitchState(GameManager.GameState.GameState_Loose);
+            }
+        }
+        else 
+        {
+            // :: Win Next Turn
             if (mCurrentTurn >= mMaxTurn)
             {
                 GameManager.Instance.SwitchState(GameManager.GameState.GameState_Win);
+            }
+            else
+            {
+                mCurrentTurn++;
+                GameManager.Instance.SwitchState(GameManager.GameState.GameState_IATurn);
             }
         }   
     }
@@ -168,5 +175,24 @@ public class Scene : MonoBehaviour {
         {
             mCircleBoard.BoardState = CircleBoard.State.State_Rotate;
         }
+    }
+
+    public void ReStartLevel()
+    {
+        mChanceToPlay = 0;
+        mCurrentTurn = 0;
+        if (mCurrentLevel >= 0)
+        {
+            mBoard.ReStartLevel();
+            mBoard.transform.localRotation = Quaternion.Euler(Vector3.zero);
+            mCreateWeight.Start();
+            GameManager.Instance.SwitchState(GameManager.GameState.GameState_IATurn);
+
+        }
+        else if (mCurrentLevel > 1)
+        {
+           // mCircleBoard.ReStartLevel();
+        }
+
     }
 }
