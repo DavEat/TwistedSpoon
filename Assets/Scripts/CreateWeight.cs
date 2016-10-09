@@ -48,8 +48,8 @@ public class CreateWeight : MonoBehaviour {
         newWeight.transform.localScale = Vector3.one * 2;
         newWeight.transform.localPosition = Vector3.zero + new Vector3(0, 0, -1.5f);
         newWeight.GetComponent<WeightInfo>().placeByPlayer = true;
-        listWeight.Add(newWeight);
 
+        listWeight.Add(newWeight);
         IgnoreCol(newWeight);
         listObjectLevel.listAllObject.Add(newWeight);
     }
@@ -69,8 +69,8 @@ public class CreateWeight : MonoBehaviour {
         newWeight.transform.localScale = Vector3.one * 2;
         newWeight.transform.localPosition = Vector3.zero + new Vector3(0, 0, -1.5f);
         newWeight.GetComponent<WeightInfo>().placeByPlayer = true;
-        listWeight.Add(newWeight);
 
+        listWeight.Add(newWeight);
         IgnoreCol(newWeight);
         listObjectLevel.listAllObject.Add(newWeight);
     }
