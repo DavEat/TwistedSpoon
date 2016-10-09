@@ -19,6 +19,10 @@ public class Scene : MonoBehaviour {
     public float mTweakAngleMax = 12.0f;
     CreateWeight
         mCreateWeight;
+    ListObjectLevel
+         prout;
+    ReplaceItemOfInventory
+     mREplaceItem;
     Board
         mBoard;
 
@@ -34,11 +38,17 @@ public class Scene : MonoBehaviour {
         mCurrentTurn = 0;
 
     // Use this for initialization
+    void Awake()
+    {
+
+    }
     void Start()
     {
         mBoard = GameObject.FindObjectOfType<Board>();
         mCircleBoard = GameObject.FindObjectOfType<CircleBoard>();
         mCreateWeight = GameObject.FindObjectOfType<CreateWeight>();
+        prout = GameObject.FindObjectOfType<ListObjectLevel>();
+        mREplaceItem = GameObject.FindObjectOfType<ReplaceItemOfInventory>();
 
         mBoardParent = FindParentWithTag(mBoard.transform, "Board").gameObject;
         mCircleBoardParent = FindParentWithTag(mCircleBoard.transform, "Board").gameObject;
@@ -178,8 +188,10 @@ public class Scene : MonoBehaviour {
         mCurrentTurn = 0;
         if (mCurrentLevel >= 0)
         {
-            mBoard.ReStartLevel();
-            mCreateWeight.Start();
+            prout.ReStartLevel();
+            mCreateWeight.listObjectLevel.ReStartLevel();
+            mCreateWeight.listObjectLevel.CreateList(mCurrentLevel);
+            mREplaceItem.AdditemInventoryNewLevel();
 
         }
         else if (mCurrentLevel > 1)

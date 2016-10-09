@@ -32,58 +32,173 @@ public class ListObjectLevel : MonoBehaviour {
         return weight;
     }
 
-    void Awake()
+    public void CreateList(int level)
     {
 
+        if (level == 0)
+        {
+            //-----Player List-----
+            WeightJustInfo w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listPlayer.Add(w);
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listPlayer.Add(w);
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listPlayer.Add(w);
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listPlayer.Add(w);
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listPlayer.Add(w);
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listPlayer.Add(w);
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listPlayer.Add(w);
 
-        //-----Player List-----
-        WeightJustInfo w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
-        listPlayer.Add(w);
-        w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
-        listPlayer.Add(w);
-        w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
-        listPlayer.Add(w);
-        w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
-        listPlayer.Add(w);
-        w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
-        listPlayer.Add(w);
-        w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
-        listPlayer.Add(w);
-        w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
-        listPlayer.Add(w);
+
+            //-----Ordi List -----
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listOrdi.Add(w);
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listOrdi.Add(w);
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listOrdi.Add(w);
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listOrdi.Add(w);
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listOrdi.Add(w);
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listOrdi.Add(w);
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listOrdi.Add(w);
+
+        }
+        else if (level == 1)
+        {
+            //-----Player List-----
+            WeightJustInfo w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listPlayer.Add(w);
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listPlayer.Add(w);
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listPlayer.Add(w);
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listPlayer.Add(w);
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listPlayer.Add(w);
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listPlayer.Add(w);
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listPlayer.Add(w);
 
 
-        //-----Ordi List -----
-        w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
-        listOrdi.Add(w);
-        w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
-        listOrdi.Add(w);
-        w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
-        listOrdi.Add(w);
-        w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
-        listOrdi.Add(w);
-        w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
-        listOrdi.Add(w);
-        w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
-        listOrdi.Add(w);
-        w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
-        listOrdi.Add(w);
+            //-----Ordi List -----
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listOrdi.Add(w);
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listOrdi.Add(w);
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listOrdi.Add(w);
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listOrdi.Add(w);
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listOrdi.Add(w);
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listOrdi.Add(w);
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listOrdi.Add(w);
+
+        }
+       else if (level ==2)
+        {
+            //-----Player List-----
+            WeightJustInfo w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listPlayer.Add(w);
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listPlayer.Add(w);
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listPlayer.Add(w);
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listPlayer.Add(w);
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listPlayer.Add(w);
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listPlayer.Add(w);
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listPlayer.Add(w);
+
+
+            //-----Ordi List -----
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listOrdi.Add(w);
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listOrdi.Add(w);
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listOrdi.Add(w);
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listOrdi.Add(w);
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listOrdi.Add(w);
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listOrdi.Add(w);
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listOrdi.Add(w);
+
+        }
+        else if (level == 3)
+        {
+            //-----Player List-----
+            WeightJustInfo w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listPlayer.Add(w);
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listPlayer.Add(w);
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listPlayer.Add(w);
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listPlayer.Add(w);
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listPlayer.Add(w);
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listPlayer.Add(w);
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listPlayer.Add(w);
+
+
+            //-----Ordi List -----
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listOrdi.Add(w);
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listOrdi.Add(w);
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listOrdi.Add(w);
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listOrdi.Add(w);
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listOrdi.Add(w);
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listOrdi.Add(w);
+            w = new WeightJustInfo(10, "Bouteil_A_01", units.g);
+            listOrdi.Add(w);
+
+        }
+
 
     }
 
     public void ReStartLevel()
     {
-        List<WeightJustInfo> temp = listPlayer;
-        List<WeightJustInfo> temp2 = listOrdi;
+  
 
-        for (int i = 0; i > listPlayer.Count; i++)
+        for (int i = listAllObject.Count - 1; i >= 0; i--)
         {
-            listPlayer.RemoveAt(i);
-        }
-        for (int j = 0; j > listOrdi.Count; j++)
-        {
-            listOrdi.RemoveAt(j);
+            DestroyObject(listAllObject[i]);
         }
 
-    }
+        for (int i = listAllObject.Count - 1; i >= 0; i--)
+        {
+            listAllObject.RemoveAt(i);
+        }
+         indexPlayer = 0;
+        indexOrdi = 0;
+
+
+}
 }
