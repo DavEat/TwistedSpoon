@@ -65,13 +65,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013132274026}
-  m_LocalRotation: {x: -0, y: -0, z: 0.000000059604638, w: 1}
-  m_LocalPosition: {x: 0, y: 4.199998, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.1899999, y: 1.7, z: 0.32000005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4000013205800812}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!4 &4000010825939912
 Transform:
   m_ObjectHideFlags: 1
@@ -84,7 +84,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4000013205800812}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!4 &4000013205800812
 Transform:
   m_ObjectHideFlags: 1
@@ -96,8 +96,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 4000010825939912}
   - {fileID: 4000010568447434}
+  - {fileID: 4000010825939912}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!65 &65000013396468450
@@ -132,12 +132,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000010616264786}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d823e3968faf9848a9fe94a6f20aced, type: 3}
+  m_Script: {fileID: 11500000, guid: fec329a297baf6f40a83cd4551b09802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   boardType: 0
   RandomSide: 0
   SpawningZoneTypeOne: []
-  SpawningZoneTypeTwo: {fileID: 0}
-  objectToInstantiate: {fileID: 0}
+  SpawningZoneTypeTwo: {fileID: 1000011115360848, guid: 06634eb7fff8a904baf23d63936ca968,
+    type: 2}
+  objectToInstantiate: {fileID: 1000014217213032, guid: 8ebbeab6614be0e4ca3ee5a434972118,
+    type: 2}
+  weight: {fileID: 1000011115360848, guid: 06634eb7fff8a904baf23d63936ca968, type: 2}
   radiusZoneTwo: 10
+  mScene: {fileID: 0}
+  mCreateWeight: {fileID: 0}
