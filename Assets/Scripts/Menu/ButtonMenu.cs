@@ -59,5 +59,6 @@ public class ButtonMenu : MonoBehaviour {
     void StartRotationBoard()
     {
         mScene.StartRotateBoard();
+        mScene.mPlayerHasPlayed = true;
     }
 }

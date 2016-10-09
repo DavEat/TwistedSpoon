@@ -11,7 +11,8 @@ public class Scene : MonoBehaviour {
         mCurrentLevel = 0,
         mChanceMaxPlay = 2,
         mMaxTurn = 5;
-
+    public bool
+        mPlayerHasPlayed = true ;
     public float mTweakValueAngle = 7.0f;
     public float mTweakAngleMax = 12.0f;
     CreateWeight
@@ -107,25 +108,7 @@ public class Scene : MonoBehaviour {
             ChangeLevel();
         }
 
-        switch (mCurrentLevel)
-        {
-            case 0:
-                if (mBoard.transform.localEulerAngles.x >= mTweakValueAngle && mBoard.transform.localEulerAngles.x < mTweakAngleMax)
-                {
-                    print("ARROW");
-                }
-                else if (mBoard.transform.localEulerAngles.x > mTweakAngleMax)
-                {
-                    print("loose ");
-                }
-                break;
-            case 1:
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-        }
+  
     }
 
     public void ChangeLevel()
@@ -137,6 +120,10 @@ public class Scene : MonoBehaviour {
 
     public void CheckRotationPlayLeft(float f_Angle)
     {
+        if (f_Angle > 180)
+        {
+            f_Angle = Mathf.Abs ( f_Angle - 360 );
+        }
         if (f_Angle > mTweakAngleMax)
         {
             if (mChanceToPlay > 0 )
@@ -159,8 +146,13 @@ public class Scene : MonoBehaviour {
             }
             else
             {
+                if (mPlayerHasPlayed)
+                {
                 mCurrentTurn++;
                 GameManager.Instance.SwitchState(GameManager.GameState.GameState_IATurn);
+                    mPlayerHasPlayed = false;
+                    StartRotateBoard();
+                }
             }
         }   
     }
@@ -184,9 +176,7 @@ public class Scene : MonoBehaviour {
         if (mCurrentLevel >= 0)
         {
             mBoard.ReStartLevel();
-            mBoard.transform.localRotation = Quaternion.Euler(Vector3.zero);
             mCreateWeight.Start();
-            GameManager.Instance.SwitchState(GameManager.GameState.GameState_IATurn);
 
         }
         else if (mCurrentLevel > 1)

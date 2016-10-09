@@ -82,7 +82,7 @@ public class Board : MonoBehaviour
 	void RotateBoard( float angle)
 	{
 		Quaternion qFinalAngle = Quaternion.AngleAxis(angle,Vector3.left);
-		StartCoroutine( RotateTo (qFinalAngle));
+            StartCoroutine( RotateTo (qFinalAngle));
 
 		if(qFinalAngle == transform.localRotation)
 		{
