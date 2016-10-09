@@ -27,7 +27,7 @@ public class DragAndDrop : MonoBehaviour
     {
         Ray testray = Camera.main.ScreenPointToRay(Input.mousePosition);
         CheckUi(testray);
-#if (UNITY_EDITOR || UNITY_STANDALONE_WIN)
+        #if (UNITY_EDITOR || UNITY_STANDALONE_WIN)
         if (Input.GetMouseButtonUp(0))  //---If release left click---
         {            
             if (currentDragElement != null)
@@ -43,6 +43,7 @@ public class DragAndDrop : MonoBehaviour
                     {
                         if (currentDragElement.GetComponent<Rigidbody>().useGravity)
                             currentDragElement.GetComponent<Rigidbody>().useGravity = false;
+                        currentDragElement.GetComponent<Rigidbody>().velocity = Vector3.zero;
 
                         currentDragElement.parent = currentDragElement.GetComponent<WeightInfo>().GetParentInventory();
                         currentDragElement.localPosition = Vector3.zero;

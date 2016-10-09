@@ -18,10 +18,14 @@ public class Board : MonoBehaviour
 	private float MasseDifference = 0.0f;
 	private AudioSource audioSource;
 
+    Scene
+        mScene;
+
 	void Start () 
 	{
 		Instance = this;
-	}
+        mScene = GameObject.FindObjectOfType<Scene>();
+    }
 	
 	void Update () 
 	{
@@ -33,6 +37,7 @@ public class Board : MonoBehaviour
 			    RotateBoard(-MasseDifference);
 				break;
 		}
+
 	}
 
 	void CheckMass ()
@@ -73,15 +78,16 @@ public class Board : MonoBehaviour
 
 	void RotateBoard( float angle)
 	{
-		Quaternion test = Quaternion.AngleAxis(angle,Vector3.left);
-		StartCoroutine( RotateTo (test));
+		Quaternion qFinalAngle = Quaternion.AngleAxis(angle,Vector3.left);
+		StartCoroutine( RotateTo (qFinalAngle));
 
-		if(test == transform.localRotation)
+		if(qFinalAngle == transform.localRotation)
 		{
 			BoardState = State.State_Wait;
 			// Donne l'objet a l'ia
 			GameManager.Instance.SwitchState(GameManager.GameState.GameState_IATurn);
-		}
+            mScene.CheckRotationPlayLeft(transform.localEulerAngles.x);
+        }
 	}
 
 	void OnCollisionEnter( Collision col )

@@ -7,19 +7,29 @@ public class Scene : MonoBehaviour {
     // This 4 levels 
     // and the same Scene ever 
 
-    public int mCurrentLevel = 0;
+    public int
+        mCurrentLevel = 0,
+        mChanceMaxPlay = 2,
+        mMaxTurn = 5;
 
-    Board 
-        mBoard; 
-    CircleBoard 
+    public float mTweakValueAngle = 7.0f;
+    public float mTweakAngleMax = 12.0f;
+
+    Board
+        mBoard;
+    CircleBoard
         mCircleBoard;
 
     GameObject
         mBoardParent,
         mCircleBoardParent;
 
-	// Use this for initialization
-	void Start ()
+    int
+        mChanceToPlay = 0,
+        mCurrentTurn = 0;
+
+    // Use this for initialization
+    void Start()
     {
         mBoard = GameObject.FindObjectOfType<Board>();
         mCircleBoard = GameObject.FindObjectOfType<CircleBoard>();
@@ -30,14 +40,14 @@ public class Scene : MonoBehaviour {
         Init();
     }
 
-    Transform FindParentWithTag( Transform t_transform , string s_name )
+    Transform FindParentWithTag(Transform t_transform, string s_name)
     {
         Transform tReturn;
 
         tReturn = t_transform;
 
-        while ( tReturn != null )
-        { 
+        while (tReturn != null)
+        {
             if (tReturn.tag == s_name)
             {
                 break;
@@ -54,6 +64,7 @@ public class Scene : MonoBehaviour {
 
     void Init()
     {
+        mChanceToPlay = mChanceMaxPlay;
         switch (mCurrentLevel)
         {
             case 0:
@@ -71,7 +82,7 @@ public class Scene : MonoBehaviour {
                 break;
             case 2:
                 {
-                    mBoardParent.gameObject.SetActive( false );
+                    mBoardParent.gameObject.SetActive(false);
                     mCircleBoardParent.gameObject.SetActive(true);
 
                     mCircleBoard.LeverArm = false;
@@ -85,14 +96,34 @@ public class Scene : MonoBehaviour {
         }
     }
 
-	// Update is called once per frame
-	void Update ()
+    // Update is called once per frame
+    void Update()
     {
         if (Input.GetKeyDown("e"))
         {
             ChangeLevel();
         }
-	}
+
+        switch (mCurrentLevel)
+        {
+            case 0:
+                if (mBoard.transform.localEulerAngles.x >= mTweakValueAngle && mBoard.transform.localEulerAngles.x < mTweakAngleMax)
+                {
+                    print("ARROW");
+                }
+                else if (mBoard.transform.localEulerAngles.x > mTweakAngleMax)
+                {
+                    print("loose ");
+                }
+                break;
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+        }
+    }
 
     void ChangeLevel()
     {
@@ -100,11 +131,33 @@ public class Scene : MonoBehaviour {
         Init();
     }
 
+    public void CheckRotationPlayLeft(float f_Angle)
+        {
+            if (f_Angle > mTweakAngleMax)
+            {
+                if (mChanceToPlay > 0 )
+                {
+                    // :: You can Play AGAIN
+                    mChanceToPlay--; 
+                }
+                else
+                {
+                    // :: LOOSE
+                }
+            }
+            else 
+            {
+                 // :: Win Next Turn
+                mCurrentTurn++;
+                GameManager.Instance.SwitchState(GameManager.GameState.GameState_IATurn);
+            }   
+    }
     public void StartRotateBoard()
     {
         if (mCurrentLevel >= 0)
         {
             mBoard.BoardState = Board.State.State_Rotate;
+
         }
         else if (mCurrentLevel > 1)
         {
