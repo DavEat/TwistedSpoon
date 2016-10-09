@@ -114,16 +114,18 @@ public class DragAndDrop : MonoBehaviour
         {
             if (currentDragElement == null)
             {
+
                 if (/*hit.transform.parent != null &&*/ hit.transform.CompareTag("Weight"))
-                {
-                    currentDragElement = hit.transform;
-                    Debug.Log("hit = " + hit.transform.name);
-                    currentDragElement.parent = transform.parent;
-                    currentDragElement.localEulerAngles = Vector3.zero;
-                    currentDragElement.GetComponent<Rigidbody>().useGravity = false;
-                    currentDragElement.GetComponent<Rigidbody>().isKinematic = false;
-                    currentDragElement.GetChild(0).gameObject.layer = 11;
-                }
+                    if (hit.transform.GetComponent<WeightInfo>().placeByPlayer)
+                    {
+                        currentDragElement = hit.transform;
+                        Debug.Log("hit = " + hit.transform.name);
+                        currentDragElement.parent = transform.parent;
+                        currentDragElement.localEulerAngles = Vector3.zero;
+                        currentDragElement.GetComponent<Rigidbody>().useGravity = false;
+                        currentDragElement.GetComponent<Rigidbody>().isKinematic = false;
+                        currentDragElement.GetChild(0).gameObject.layer = 11;
+                    }
             }
             else
             {

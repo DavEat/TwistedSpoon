@@ -76,6 +76,9 @@ public class IA : MonoBehaviour {
 									col.gameObject.transform.position.z + col.center.z + Random.Range (-col.size.z / 2.0f, col.size.z /2.0f));
 		}
 		GameObject newobj = Instantiate (objectToInstantiate,RandomPos, Quaternion.identity) as GameObject;
+        newobj.GetComponent<Rigidbody>().useGravity = true;
+        newobj.GetComponent<Rigidbody>().isKinematic = false;
+        //newobj.GetComponent<WeightInfo>().placeByPlayer = false;
         listObject.listAllObject.Add(newobj);
     }
 

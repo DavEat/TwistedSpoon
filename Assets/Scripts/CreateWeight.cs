@@ -38,12 +38,14 @@ public class CreateWeight : MonoBehaviour {
         //newWeight.GetComponent<WeightInfo>().Init(_quantity, _meshName, _units, parentt);
         newWeight.GetComponent<WeightInfo>().Init(_quantity, _meshName, _units, parentt);
         GameObject mesh = Instantiate(Resources.Load("WeightMesh/" + newWeight.GetComponent<WeightInfo>().GetMeshName()), newWeight.transform) as GameObject;
+        
         mesh.transform.localPosition = Vector3.zero;
 
         newWeight.transform.parent = parentt;
         newWeight.transform.localEulerAngles = Vector3.zero;
         newWeight.transform.localScale = Vector3.one * 2;
         newWeight.transform.localPosition = Vector3.zero + new Vector3(0, 0, -1.5f);
+        newWeight.GetComponent<WeightInfo>().placeByPlayer = true;
 
         listObjectLevel.listAllObject.Add(newWeight);
     }
@@ -62,7 +64,7 @@ public class CreateWeight : MonoBehaviour {
         newWeight.transform.localEulerAngles = Vector3.zero;
         newWeight.transform.localScale = Vector3.one * 2;
         newWeight.transform.localPosition = Vector3.zero + new Vector3(0, 0, -1.5f);
-
+        newWeight.GetComponent<WeightInfo>().placeByPlayer = true;
         listWeight.Add(newWeight);
 
         IgnoreCol(newWeight);

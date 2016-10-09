@@ -80,5 +80,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e855913d39b602244a2d58be86c657f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  placeByPlayer: 0
   radius: 1
-  sound: {fileID: 0}
+  gameObject: {fileID: 0}
+  soundM: {fileID: 0}
+  soundW: {fileID: 0}
