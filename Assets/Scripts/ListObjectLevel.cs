@@ -4,25 +4,20 @@ using System.Collections.Generic;
 public class ListObjectLevel : MonoBehaviour {
 
     private List<WeightInfo> listPlayer = new List<WeightInfo>(), listOrdi = new List<WeightInfo>();
-    private int indexPlayer = -1, indexOrdi = -1;
+    private int indexPlayer = 0, indexOrdi = 0;
 
     public WeightInfo GetNextPlayerObject()
     {
-        indexPlayer++;
-        if (indexPlayer < listPlayer.Count)
-            return listPlayer[indexPlayer];
-        else return null;
+		return listPlayer[indexPlayer++ % listPlayer.Count];
     }
 
     public WeightInfo GetNextOrdiObject()
     {
-        indexOrdi++;
-        if (indexOrdi < listOrdi.Count)
-            return listOrdi[indexOrdi];
-        else return null;
+		Debug.Log (listOrdi[indexOrdi % listOrdi.Count]);
+		return listOrdi[indexOrdi++ % listOrdi.Count];
     }
 
-    void Start()
+    void Awake()
     {
         WeightInfo w = new WeightInfo();
 
@@ -41,19 +36,19 @@ public class ListObjectLevel : MonoBehaviour {
         listPlayer.Add(w);
 
 
-        //-----Orid List -----
+        //-----Ordi List -----
         w.Init(10, "Bouteil_A_01", units.g);
-        listPlayer.Add(w);
+		listOrdi.Add(w);
         w.Init(10, "Bouteil_A_01", units.g);
-        listPlayer.Add(w);
+		listOrdi.Add(w);
         w.Init(10, "Bouteil_A_01", units.g);
-        listPlayer.Add(w);
+		listOrdi.Add(w);
         w.Init(10, "Bouteil_A_01", units.g);
-        listPlayer.Add(w);
+		listOrdi.Add(w);
         w.Init(10, "Bouteil_A_01", units.g);
-        listPlayer.Add(w);
+		listOrdi.Add(w);
         w.Init(10, "Bouteil_A_01", units.g);
-        listPlayer.Add(w);
+		listOrdi.Add(w);
 
     }
 }

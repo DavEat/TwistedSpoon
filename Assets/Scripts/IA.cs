@@ -21,9 +21,12 @@ public class IA : MonoBehaviour {
 	public GameObject objectToInstantiate;
 	public float radiusZoneTwo = 10.0f;
 
+	private ListObjectLevel listObject;
+
 	void Start () 
 	{
 		Instance = this;
+		listObject = GameObject.FindGameObjectWithTag ("ListObject").GetComponent<ListObjectLevel> ();
 		SpawningZoneTypeOne = transform.FindChild ("SpawnBoard").GetComponents<BoxCollider> ().ToList<BoxCollider>();
 		SpawningZoneTypeTwo = transform.FindChild ("SpawnCircle").gameObject;
 	}
@@ -38,6 +41,7 @@ public class IA : MonoBehaviour {
 
 	public void Play()
 	{
+		objectToInstantiate = listObject.GetNextOrdiObject ().gameObject; 
 		switch (boardType) 
 		{
 		case BoardType.BoardType_Simple:
@@ -48,7 +52,6 @@ public class IA : MonoBehaviour {
 			SpawningtypeTwo ();
 				break;
 		}
-		// remplie la selection d'objet dans l'ui.
 		GameManager.Instance.SwitchState (GameManager.GameState.GameState_PlayerTurn);
 	}
 
