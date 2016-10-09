@@ -83,6 +83,7 @@ public class Board : MonoBehaviour
 		if(qFinalAngle == transform.localRotation)
 		{
 			BoardState = State.State_Wait;
+			// Donne l'objet a l'ia
 			GameManager.Instance.SwitchState(GameManager.GameState.GameState_IATurn);
             mScene.CheckRotationPlayLeft(transform.localEulerAngles.x);
         }
