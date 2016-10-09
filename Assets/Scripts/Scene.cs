@@ -21,6 +21,8 @@ public class Scene : MonoBehaviour {
         mCreateWeight;
     ListObjectLevel
          prout;
+    ReplaceItemOfInventory
+     mREplaceItem;
     Board
         mBoard;
 
@@ -42,6 +44,7 @@ public class Scene : MonoBehaviour {
         mCircleBoard = GameObject.FindObjectOfType<CircleBoard>();
         mCreateWeight = GameObject.FindObjectOfType<CreateWeight>();
         prout = GameObject.FindObjectOfType<ListObjectLevel>();
+        mREplaceItem = GameObject.FindObjectOfType<ReplaceItemOfInventory>();
 
         mBoardParent = FindParentWithTag(mBoard.transform, "Board").gameObject;
         mCircleBoardParent = FindParentWithTag(mCircleBoard.transform, "Board").gameObject;
@@ -183,7 +186,8 @@ public class Scene : MonoBehaviour {
         {
             prout.ReStartLevel();
             mCreateWeight.listObjectLevel.ReStartLevel();
-            mCreateWeight.Start();
+            mCreateWeight.listObjectLevel.Awake();
+            mREplaceItem.AdditemInventory();
 
         }
         else if (mCurrentLevel > 1)
