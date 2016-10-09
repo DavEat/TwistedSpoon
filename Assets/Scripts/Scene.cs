@@ -19,6 +19,8 @@ public class Scene : MonoBehaviour {
     public float mTweakAngleMax = 12.0f;
     CreateWeight
         mCreateWeight;
+    ListObjectLevel
+         prout;
     Board
         mBoard;
 
@@ -39,6 +41,7 @@ public class Scene : MonoBehaviour {
         mBoard = GameObject.FindObjectOfType<Board>();
         mCircleBoard = GameObject.FindObjectOfType<CircleBoard>();
         mCreateWeight = GameObject.FindObjectOfType<CreateWeight>();
+        prout = GameObject.FindObjectOfType<ListObjectLevel>();
 
         mBoardParent = FindParentWithTag(mBoard.transform, "Board").gameObject;
         mCircleBoardParent = FindParentWithTag(mCircleBoard.transform, "Board").gameObject;
@@ -178,7 +181,8 @@ public class Scene : MonoBehaviour {
         mCurrentTurn = 0;
         if (mCurrentLevel >= 0)
         {
-            mBoard.ReStartLevel();
+            prout.ReStartLevel();
+            mCreateWeight.listObjectLevel.ReStartLevel();
             mCreateWeight.Start();
 
         }

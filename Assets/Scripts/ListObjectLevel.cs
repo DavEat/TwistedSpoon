@@ -73,17 +73,18 @@ public class ListObjectLevel : MonoBehaviour {
 
     public void ReStartLevel()
     {
-        List<WeightJustInfo> temp = listPlayer;
-        List<WeightJustInfo> temp2 = listOrdi;
-
-        for (int i = 0; i > listPlayer.Count; i++)
+        for (int i = listPlayer.Count -1; i >= 0 ; i--)
         {
             listPlayer.RemoveAt(i);
         }
-        for (int j = 0; j > listOrdi.Count; j++)
+        for (int j = listOrdi.Count -1; j >= 0; j--)
         {
             listOrdi.RemoveAt(j);
         }
 
+        for (int i = listAllObject.Count - 1; i >= 0; i--)
+        {
+            DestroyObject(listAllObject[i]);
+        }
     }
 }

@@ -137,13 +137,4 @@ public class Board : MonoBehaviour
 		}
 	}
 
-    public void ReStartLevel()
-    {
-        foreach (WeightInfo weight in listWeight)
-        {
-            Destroy(weight.gameObject);
-
-        }
-            mCreateWeight.listObjectLevel.ReStartLevel();
-    }
 }
