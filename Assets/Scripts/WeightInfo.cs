@@ -27,6 +27,7 @@ public enum meshName
 
 public class WeightInfo : MonoBehaviour
 {
+    public bool placeByPlayer;
     private bool upSide;
     private int quantity;
     private string meshName;
@@ -35,7 +36,7 @@ public class WeightInfo : MonoBehaviour
     public float radius;
     public GameObject gameObject;
 
-    public AudioClip sound;
+    public AudioClip soundM, soundW;
 
     public void Init(int _quantity, string _meshName, units _unit)
     {
@@ -50,6 +51,15 @@ public class WeightInfo : MonoBehaviour
         this.meshName = _meshName.ToString();
         this.unit = _unit;
         this.parentInventary = _parentInventary;
+    }
+
+    public void Init(int _quantity, string _meshName, units _unit, Transform _parentInventary, bool _placeByPlayer)
+    {
+        this.quantity = _quantity;
+        this.meshName = _meshName.ToString();
+        this.unit = _unit;
+        this.parentInventary = _parentInventary;
+        this.placeByPlayer = _placeByPlayer;
     }
 
     //----- Getter Setter -----
@@ -112,6 +122,13 @@ public class WeightInfo : MonoBehaviour
     public void SetrRadius(float value)
     {
         this.radius = value;
+    }
+
+    public AudioClip GetSound(bool metal)
+    {
+        if (metal)
+            return soundM;
+        else return soundW;
     }
 }
 
