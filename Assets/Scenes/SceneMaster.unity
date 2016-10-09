@@ -399,7 +399,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000010318302366, guid: 512add950ee58e7498344d17db230336, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114000014225684268, guid: 512add950ee58e7498344d17db230336,
         type: 2}
@@ -1925,7 +1925,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 958526972}
   m_LocalRotation: {x: -0.5116447, y: -0.2820962, z: 0.79077667, w: 0.1825206}
-  m_LocalPosition: {x: 0.4999991, y: 4.821703, z: 6.757492}
+  m_LocalPosition: {x: 8.46, y: 2.68, z: 0.39}
   m_LocalScale: {x: 1, y: 2.106342, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: -23.999, z: 0}
   m_Children: []
@@ -2867,7 +2867,7 @@ Prefab:
     - target: {fileID: 114000013671521500, guid: 5b57ada05103ebc4e9eac16a20aaf3e5,
         type: 2}
       propertyPath: listMesh.Array.size
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 114000013671521500, guid: 5b57ada05103ebc4e9eac16a20aaf3e5,
         type: 2}
@@ -3204,6 +3204,12 @@ Prefab:
       propertyPath: listObjectLevel
       value: 
       objectReference: {fileID: 595521074}
+    - target: {fileID: 114000013671521500, guid: 5b57ada05103ebc4e9eac16a20aaf3e5,
+        type: 2}
+      propertyPath: listMesh.Array.data[8]
+      value: 
+      objectReference: {fileID: 1000012373807790, guid: 0ec675b82fc07ce47b8c08ca22667cd5,
+        type: 2}
     m_RemovedComponents:
     - {fileID: 114000012816884152, guid: 5b57ada05103ebc4e9eac16a20aaf3e5, type: 2}
     - {fileID: 114000010212773450, guid: 5b57ada05103ebc4e9eac16a20aaf3e5, type: 2}
@@ -3408,8 +3414,8 @@ Transform:
   m_Children:
   - {fileID: 1680836215}
   - {fileID: 958526974}
-  - {fileID: 343100824}
   - {fileID: 1686314419}
+  - {fileID: 343100824}
   - {fileID: 377188914}
   - {fileID: 1565002049}
   m_Father: {fileID: 0}
@@ -3651,7 +3657,7 @@ Transform:
   - {fileID: 174220434}
   - {fileID: 2033800667}
   m_Father: {fileID: 1636515692}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!1 &1716182564
 GameObject:
   m_ObjectHideFlags: 0
@@ -4503,6 +4509,7 @@ GameObject:
   - 65: {fileID: 2033800670}
   - 114: {fileID: 2033800669}
   - 54: {fileID: 2033800668}
+  - 82: {fileID: 2033800671}
   m_Layer: 0
   m_Name: Board
   m_TagString: BoardRotation
@@ -4558,6 +4565,7 @@ MonoBehaviour:
   RationMassAngle: 2
   LeverArm: 0
   BoardState: 0
+  audioSource: {fileID: 2033800671}
 --- !u!65 &2033800670
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4571,3 +4579,77 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.216743, y: 0.3008239, z: 10.49187}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!82 &2033800671
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2033800666}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
