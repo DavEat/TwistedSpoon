@@ -25,16 +25,19 @@ public class SoundManager : MonoBehaviour {
 	
 	void Update () 
 	{
-		time += Time.deltaTime;
-		if( audioSource.clip != null && !audioSource.isPlaying && time > everyXTime)
+		if (GameManager.Instance.gameState != GameManager.GameState.GameState_Menu) 
 		{
-			time = 0.0f;
-			audioSource.clip = null;
-		}
-		else if (audioSource.clip == null && time >= everyXTime)
-		{
-			audioSource.clip = 	ambianceRandom [Random.Range (0, ambianceRandom.Count)];
-			audioSource.Play ();
+			time += Time.deltaTime;
+			if( audioSource.clip != null && !audioSource.isPlaying && time > everyXTime)
+			{
+				time = 0.0f;
+				audioSource.clip = null;
+			}
+			else if (audioSource.clip == null && time >= everyXTime)
+			{
+				audioSource.clip = 	ambianceRandom [Random.Range (0, ambianceRandom.Count)];
+				audioSource.Play ();
+			}
 		}
 	}
 
