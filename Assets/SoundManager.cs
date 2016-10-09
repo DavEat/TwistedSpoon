@@ -5,15 +5,22 @@ using System.Linq;
 
 public class SoundManager : MonoBehaviour {
 
+	public static SoundManager Instance { get; private set;}
 	public AudioSource audioSource;
 	public List<AudioClip> ambianceRandom = new List<AudioClip>();
+	public List<AudioClip> collisionSound = new List<AudioClip>();
+
 	public float everyXTime = 10.0f;
+
+	private AudioSource AmbAudioSource;
 
 	private float time = 0.0f;
 
 	void Start () 
 	{
+		Instance = this;
 		audioSource = GetComponent<AudioSource> ();
+		AmbAudioSource = GetComponentInChildren<AudioSource> ();
 	}
 	
 	void Update () 
@@ -30,4 +37,18 @@ public class SoundManager : MonoBehaviour {
 			audioSource.Play ();
 		}
 	}
+
+	public AudioClip PlayCollisionSound ( string name )
+	{
+		AudioClip sound = null;
+		foreach(AudioClip clip in collisionSound)
+		{
+			if(clip.name == name)
+			{
+				return clip;
+			}
+		}
+		return sound;
+	}
+
 }

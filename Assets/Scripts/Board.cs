@@ -16,6 +16,7 @@ public class Board : MonoBehaviour
 	public State BoardState = State.State_Wait;
 
 	private float MasseDifference = 0.0f;
+	private AudioSource audioSource;
 
 	void Start () 
 	{
@@ -96,6 +97,10 @@ public class Board : MonoBehaviour
 
 
             listWeight.Add (weight);
+
+			audioSource.clip = SoundManager.Instance.PlayCollisionSound(weight.name);
+			if(audioSource != null)
+				audioSource.Play ();
 			CheckMass ();
 		}	
 	}
