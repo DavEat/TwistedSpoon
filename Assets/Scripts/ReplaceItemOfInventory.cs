@@ -4,6 +4,9 @@ using System.Collections.Generic;
 public class ReplaceItemOfInventory : MonoBehaviour {
 
     [SerializeField]
+    private CreateWeight create;
+
+    [SerializeField]
     private List<Transform> listT, listTarget;
 
 	void Start ()
@@ -18,5 +21,12 @@ public class ReplaceItemOfInventory : MonoBehaviour {
     public List<Transform> GetListTarget()
     {
         return this.listTarget;
+    }
+
+    public void AdditemInventory()
+    {
+        foreach(Transform t in listT)
+            if (t.childCount == 0)
+                create.CreateObj(t);
     }
 }
