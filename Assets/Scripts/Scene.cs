@@ -125,7 +125,7 @@ public class Scene : MonoBehaviour {
         }
     }
 
-    void ChangeLevel()
+    public void ChangeLevel()
     {
         mCurrentLevel++;
         Init();
@@ -142,7 +142,8 @@ public class Scene : MonoBehaviour {
                 }
                 else
                 {
-                    // :: LOOSE
+                // :: LOOSE
+                GameManager.Instance.SwitchState(GameManager.GameState.GameState_Loose);
                 }
             }
             else 
@@ -150,7 +151,11 @@ public class Scene : MonoBehaviour {
                  // :: Win Next Turn
                 mCurrentTurn++;
                 GameManager.Instance.SwitchState(GameManager.GameState.GameState_IATurn);
-            }   
+            if (mCurrentTurn >= mMaxTurn)
+            {
+                GameManager.Instance.SwitchState(GameManager.GameState.GameState_Win);
+            }
+        }   
     }
     public void StartRotateBoard()
     {
