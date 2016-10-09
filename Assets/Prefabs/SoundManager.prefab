@@ -354,5 +354,15 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 56fd2e4bcb6cf404aba50ed3d296288d, type: 3}
   - {fileID: 8300000, guid: 599bc7b7aaa1b8f4ba4b4173e3cedcd4, type: 3}
   - {fileID: 8300000, guid: 32441cc04520318478d6163675225a3f, type: 3}
-  collisionSound: []
+  collisionSound:
+  - {fileID: 8300000, guid: 43fd2cb7d73ad4a4a821dd17d5412451, type: 3}
+  - {fileID: 8300000, guid: a34c12eb966e4544a86b82ebfa7ac856, type: 3}
+  - {fileID: 8300000, guid: 43825c19af8a46c48b633ce212314e6f, type: 3}
+  - {fileID: 8300000, guid: d8714172de04fa7499a2085255c288bd, type: 3}
+  - {fileID: 8300000, guid: 7f4d4c473c55e3b479cc91a1c99b9d76, type: 3}
+  - {fileID: 8300000, guid: 8b735980d743e3648a1e3c97f078219d, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   everyXTime: 10
