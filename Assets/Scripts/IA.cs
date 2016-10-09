@@ -86,11 +86,15 @@ public class IA : MonoBehaviour {
 
         WeightJustInfo wInfo = listObject.GetCurrentOrdiInfo();
 
-    //    GameObject newWeight = Instantiate(weight) as GameObject;
+        //    GameObject newWeight = Instantiate(weight) as GameObject;
         //newWeight.GetComponent<WeightInfo>().Init(_quantity, _meshName, _units, parentt);
+
         GameObject mesh = Instantiate(objectToInstantiate, RandomPos, Quaternion.identity) as GameObject ;
         mesh.GetComponent<WeightInfo>().Init(wInfo.quantity, wInfo.meshName, wInfo.unit);
         mesh.transform.localPosition = RandomPos;
+
+        GameObject meshofobjectToInstantiate = Instantiate(Resources.Load("WeightMesh/" + mesh.GetComponent<WeightInfo>().GetMeshName()), mesh.transform) as GameObject;
+        meshofobjectToInstantiate.transform.localPosition = Vector3.zero;
 
         mesh.transform.localEulerAngles = Vector3.zero;
         //   newWeight.transform.localScale = Vector3.one * 2;

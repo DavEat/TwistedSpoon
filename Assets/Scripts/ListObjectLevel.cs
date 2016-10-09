@@ -26,9 +26,7 @@ public class ListObjectLevel : MonoBehaviour {
 
     private GameObject Create(WeightJustInfo info)
     {
-        weight.GetComponent<WeightInfo>().Init(info.quantity, info.meshName, info.unit);        
-        GameObject mesh = Instantiate(Resources.Load("WeightMesh/" + weight.GetComponent<WeightInfo>().GetMeshName()), weight.transform) as GameObject;
-        mesh.transform.localPosition = Vector3.zero;
+        weight.GetComponent<WeightInfo>().Init(info.quantity, info.meshName, info.unit);
         return weight;
     }
 

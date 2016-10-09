@@ -36,10 +36,11 @@ public class ReplaceItemOfInventory : MonoBehaviour {
         {
             if (t.childCount != 0)
             {
-                DestroyObject(t.GetChild(0));
+                for (int i = 0; i < t.childCount; i++)
+                    DestroyObject(t.GetChild(i));                
             }
-
             create.CreateObj(t);
+
         }
 
     }
