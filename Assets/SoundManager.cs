@@ -12,7 +12,6 @@ public class SoundManager : MonoBehaviour {
 
 	public float everyXTime = 10.0f;
 
-	private AudioSource AmbAudioSource;
 
 	private float time = 0.0f;
 
@@ -20,7 +19,6 @@ public class SoundManager : MonoBehaviour {
 	{
 		Instance = this;
 		audioSource = GetComponent<AudioSource> ();
-		AmbAudioSource = GetComponentInChildren<AudioSource> ();
 	}
 	
 	void Update () 
