@@ -6,6 +6,7 @@ public class ListObjectLevel : MonoBehaviour {
     [SerializeField]
     private GameObject weight;
 
+    public List<GameObject> listAllObject;
     private List<WeightJustInfo> listPlayer = new List<WeightJustInfo>(), listOrdi = new List<WeightJustInfo>();
     private int indexPlayer = 0, indexOrdi = 0;
 

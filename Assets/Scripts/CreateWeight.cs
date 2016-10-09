@@ -45,7 +45,7 @@ public class CreateWeight : MonoBehaviour {
         newWeight.transform.localScale = Vector3.one * 2;
         newWeight.transform.localPosition = Vector3.zero + new Vector3(0, 0, -1.5f);
 
-        listWeight.Add(newWeight);
+        listObjectLevel.listAllObject.Add(newWeight);
     }
 
     public void CreateObj(Transform parentt)

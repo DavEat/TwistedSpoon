@@ -75,8 +75,9 @@ public class IA : MonoBehaviour {
 									col.center.y,
 									col.gameObject.transform.position.z + col.center.z + Random.Range (-col.size.z / 2.0f, col.size.z /2.0f));
 		}
-		Instantiate (objectToInstantiate,RandomPos, Quaternion.identity);
-	}
+		GameObject newobj = Instantiate (objectToInstantiate,RandomPos, Quaternion.identity) as GameObject;
+        listObject.listAllObject.Add(newobj);
+    }
 
 	void SpawningtypeTwo()
 	{
