@@ -29,4 +29,18 @@ public class ReplaceItemOfInventory : MonoBehaviour {
             if (t.childCount == 0)
                 create.CreateObj(t);
     }
+
+    public void AdditemInventoryNewLevel()
+    {
+        foreach (Transform t in listT)
+        {
+            if (t.childCount != 0)
+            {
+                DestroyObject(t.GetChild(0));
+            }
+
+            create.CreateObj(t);
+        }
+
+    }
 }

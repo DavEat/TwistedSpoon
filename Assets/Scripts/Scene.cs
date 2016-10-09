@@ -191,7 +191,7 @@ public class Scene : MonoBehaviour {
             prout.ReStartLevel();
             mCreateWeight.listObjectLevel.ReStartLevel();
             mCreateWeight.listObjectLevel.CreateList(mCurrentLevel);
-            mREplaceItem.AdditemInventory();
+            mREplaceItem.AdditemInventoryNewLevel();
 
         }
         else if (mCurrentLevel > 1)

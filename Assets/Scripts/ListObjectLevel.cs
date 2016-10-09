@@ -191,5 +191,14 @@ public class ListObjectLevel : MonoBehaviour {
         {
             DestroyObject(listAllObject[i]);
         }
-    }
+
+        for (int i = listAllObject.Count - 1; i >= 0; i--)
+        {
+            listAllObject.RemoveAt(i);
+        }
+         indexPlayer = 0;
+        indexOrdi = 0;
+
+
+}
 }
