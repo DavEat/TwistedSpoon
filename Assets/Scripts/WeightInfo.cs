@@ -33,6 +33,7 @@ public class WeightInfo : MonoBehaviour
     private units unit;
     private Transform parentInventary;
     public float radius;
+    public GameObject gameObject;
 
     public AudioClip sound;
 

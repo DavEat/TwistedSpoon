@@ -3433,7 +3433,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mCurrentLevel: 0
   mChanceMaxPlay: 2
-  mMaxTurn: 5
+  mMaxTurn: 1
   mTweakValueAngle: 5
   mTweakAngleMax: 8
 --- !u!1 &1654772463
@@ -4070,6 +4070,10 @@ Prefab:
     - target: {fileID: 4000013065950892, guid: 7b83f39d496eeeb419332009cd9898d8, type: 2}
       propertyPath: m_RootOrder
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012350175734, guid: 7b83f39d496eeeb419332009cd9898d8, type: 2}
+      propertyPath: m_TagString
+      value: ListObject
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7b83f39d496eeeb419332009cd9898d8, type: 2}

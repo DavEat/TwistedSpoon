@@ -68,4 +68,20 @@ public class ListObjectLevel : MonoBehaviour {
         listOrdi.Add(w);
 
     }
+
+    public void ReStartLevel()
+    {
+        List<WeightJustInfo> temp = listPlayer;
+        List<WeightJustInfo> temp2 = listOrdi;
+
+        for (int i = 0; i > listPlayer.Count; i++)
+        {
+            listPlayer.RemoveAt(i);
+        }
+        for (int j = 0; j > listOrdi.Count; j++)
+        {
+            listOrdi.RemoveAt(j);
+        }
+
+    }
 }
