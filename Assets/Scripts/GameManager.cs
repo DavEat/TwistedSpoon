@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour {
 
 	public GameState gameState = GameState.GameState_Menu;
 
+	private bool GameIsLaunched = false;
+
 	void Start () 
 	{
 		Instance = this;
@@ -31,6 +33,15 @@ public class GameManager : MonoBehaviour {
 				break;
 			case GameState.GameState_Paused:
 				break;
+		}
+	}
+
+	public void LaunchGame()
+	{
+		if(!GameIsLaunched)
+		{
+			GameIsLaunched = true;
+			SwitchState(GameState.GameState_IATurn);
 		}
 	}
 
