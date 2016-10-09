@@ -135,9 +135,10 @@ public class Scene : MonoBehaviour {
         {
             if (f_Angle > mTweakAngleMax)
             {
-                if (mChanceToPlay > 0)
+                if (mChanceToPlay > 0 )
                 {
                     // :: You can Play AGAIN
+                    mChanceToPlay--; 
                 }
                 else
                 {
@@ -156,7 +157,6 @@ public class Scene : MonoBehaviour {
         if (mCurrentLevel >= 0)
         {
             mBoard.BoardState = Board.State.State_Rotate;
-            mChanceToPlay--;
 
         }
         else if (mCurrentLevel > 1)
