@@ -11,6 +11,7 @@ TagManager:
   - InventoryCase
   - Board
   - Green
+  - BoardRotation
   layers:
   - Default
   - TransparentFX
