@@ -22,7 +22,7 @@ GameObject:
   - 114: {fileID: 114000011115699018}
   m_Layer: 0
   m_Name: ListObjectLevel
-  m_TagString: Untagged
+  m_TagString: ListObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51,3 +51,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8c337f91bb977745bc3a8a169ab0836, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weight: {fileID: 1000011115360848, guid: 06634eb7fff8a904baf23d63936ca968, type: 2}

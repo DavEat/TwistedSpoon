@@ -50,11 +50,11 @@ public class CreateWeight : MonoBehaviour {
 
     public void CreateObj(Transform parentt)
     {
-        WeightInfo wInfo = listObjectLevel.GetNextPlayerObject();
+        WeightJustInfo wInfo = listObjectLevel.GetNextPlayerObject();
 
         GameObject newWeight = Instantiate(weight) as GameObject;
         //newWeight.GetComponent<WeightInfo>().Init(_quantity, _meshName, _units, parentt);
-        newWeight.GetComponent<WeightInfo>().Init(wInfo.GetQuantity(), wInfo.GetMeshName(), wInfo.GetUnit(), parentt);
+        newWeight.GetComponent<WeightInfo>().Init(wInfo.quantity, wInfo.meshName, wInfo.unit, parentt);
         GameObject mesh = Instantiate(Resources.Load("WeightMesh/" + newWeight.GetComponent<WeightInfo>().GetMeshName()), newWeight.transform) as GameObject;
         mesh.transform.localPosition = Vector3.zero;
 

@@ -114,3 +114,17 @@ public class WeightInfo : MonoBehaviour
     }
 }
 
+public class WeightJustInfo
+{
+    public int quantity;
+    public string meshName;
+    public units unit;
+
+    public WeightJustInfo(int _quantity, string _meshName, units _unit)
+    {
+        this.quantity = _quantity;
+        this.meshName = _meshName.ToString();
+        this.unit = _unit;
+    }
+}
+
