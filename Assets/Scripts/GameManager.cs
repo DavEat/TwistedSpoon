@@ -5,16 +5,23 @@ public class GameManager : MonoBehaviour {
 
 	public static GameManager Instance { get; private set;}
 
-	public enum GameState { GameState_PlayerTurn, GameState_IATurn, GameState_Paused, GameState_Menu}
+	public enum GameState { GameState_PlayerTurn, GameState_IATurn, GameState_Paused, GameState_Menu, GameState_Loose, GameState_Win }
 
 	public GameState gameState = GameState.GameState_Menu;
+
+    public Animator
+        mCanvasAnimator;
+
+    Scene
+        mScene;
 
 	private bool GameIsLaunched = false;
 
 	void Start () 
 	{
 		Instance = this;
-	}
+        mScene = GameObject.FindObjectOfType<Scene>();
+    }
 	
 	void Update () 
 	{
@@ -60,6 +67,13 @@ public class GameManager : MonoBehaviour {
 				break;
 			case GameState.GameState_Paused:
 				break;
-		}
+            case GameState.GameState_Loose:
+                mCanvasAnimator.SetTrigger("LOSE");
+                break;
+            case GameState.GameState_Win:
+                mCanvasAnimator.SetTrigger("WIN");
+                mScene.ChangeLevel();
+                break;
+        }
 	}
 }
