@@ -106,6 +106,7 @@ public class Board : MonoBehaviour
 
             listWeight.Add (weight);
 
+
 			audioSource.clip = SoundManager.Instance.PlayCollisionSound(weight.name,false);
 			if(audioSource != null)
 				audioSource.Play ();

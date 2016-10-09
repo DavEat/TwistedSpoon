@@ -12,7 +12,9 @@ public class Scene : MonoBehaviour {
         mChanceMaxPlay = 2,
         mMaxTurn = 5;
     public bool
-        mPlayerHasPlayed = true ;
+        mPlayerHasPlayed = true ,
+        mbPlayerPlayed = false;
+
     public float mTweakValueAngle = 7.0f;
     public float mTweakAngleMax = 12.0f;
     CreateWeight
@@ -146,11 +148,12 @@ public class Scene : MonoBehaviour {
             }
             else
             {
-                if (mPlayerHasPlayed)
+                if (mPlayerHasPlayed && mbPlayerPlayed)
                 {
                 mCurrentTurn++;
                 GameManager.Instance.SwitchState(GameManager.GameState.GameState_IATurn);
                     mPlayerHasPlayed = false;
+                    mbPlayerPlayed = false;
                     StartRotateBoard();
                 }
             }

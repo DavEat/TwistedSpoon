@@ -18,8 +18,10 @@ public class DragAndDrop : MonoBehaviour
     private bool inventory;
     private GameObject mPopUp;
 
+    Scene mScene;
     void Start()
     {
+        mScene = GameObject.FindObjectOfType<Scene>();
         mPopUp = GameObject.FindObjectOfType<PopUp>().gameObject;
     }
 
@@ -129,6 +131,8 @@ public class DragAndDrop : MonoBehaviour
                         currentDragElement.GetComponent<Rigidbody>().useGravity = false;
                         currentDragElement.GetComponent<Rigidbody>().isKinematic = false;
                         currentDragElement.GetChild(0).gameObject.layer = 11;
+                        mScene.mbPlayerPlayed = true;
+
                     }
             }
             else
@@ -140,7 +144,10 @@ public class DragAndDrop : MonoBehaviour
                         inventory = false;
                 }
                 currentDragElement.position = hit.point + new Vector3(0, heightDraElem, 0);
+                mScene.mbPlayerPlayed = true;
+
             }
+
         }
     }
 }
