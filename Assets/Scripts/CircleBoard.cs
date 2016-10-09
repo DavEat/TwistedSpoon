@@ -16,6 +16,7 @@ public class CircleBoard : MonoBehaviour {
 	public State BoardState = State.State_Wait;
 
 	private Quaternion ToAngle = Quaternion.identity;
+	private AudioSource audioSource;
 
 	void Start () 
 	{
@@ -80,6 +81,11 @@ public class CircleBoard : MonoBehaviour {
 			weight.transform.parent = this.transform.parent;
 
 			Weights.Add (weight);
+
+			audioSource.clip = SoundManager.Instance.PlayCollisionSound(weight.name);
+			if(audioSource != null)
+				audioSource.Play ();
+			
 			CheckMass ();
 		}	
 	}
