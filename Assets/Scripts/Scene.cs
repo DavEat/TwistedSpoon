@@ -38,6 +38,10 @@ public class Scene : MonoBehaviour {
         mCurrentTurn = 0;
 
     // Use this for initialization
+    void Awake()
+    {
+
+    }
     void Start()
     {
         mBoard = GameObject.FindObjectOfType<Board>();
@@ -186,7 +190,7 @@ public class Scene : MonoBehaviour {
         {
             prout.ReStartLevel();
             mCreateWeight.listObjectLevel.ReStartLevel();
-            mCreateWeight.listObjectLevel.Awake();
+            mCreateWeight.listObjectLevel.CreateList(mCurrentLevel);
             mREplaceItem.AdditemInventory();
 
         }

@@ -15,6 +15,7 @@ public class CreateWeight : MonoBehaviour {
 
     public void Start()
     {
+        listObjectLevel.CreateList(0);
         //listPosInventory = new List<Transform>();
         int iLastRandom = Random.Range(0, listMesh.Count);
         foreach (Transform t in listPosInventory)
