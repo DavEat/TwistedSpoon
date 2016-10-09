@@ -361,8 +361,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d8714172de04fa7499a2085255c288bd, type: 3}
   - {fileID: 8300000, guid: 7f4d4c473c55e3b479cc91a1c99b9d76, type: 3}
   - {fileID: 8300000, guid: 8b735980d743e3648a1e3c97f078219d, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 038af5088d19c5040a021b7c8d405d96, type: 3}
+  - {fileID: 8300000, guid: 5e9b1e80212c2464997fbea1e4548ed5, type: 3}
+  - {fileID: 8300000, guid: eb21d28354f890743a48938e137c5a85, type: 3}
+  - {fileID: 8300000, guid: 0d197ca2efe007342980d7914a7be8d1, type: 3}
   everyXTime: 10
