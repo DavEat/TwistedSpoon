@@ -65,15 +65,15 @@ public class IA : MonoBehaviour {
 			col = SpawningZoneTypeOne [Random.Range(0, SpawningZoneTypeOne.Count)];
 		}
 
-		RandomPos = new Vector3 (col.center.x + Random.Range (-col.size.x / 2.0f, col.size.x / 2.0f),
+		RandomPos = new Vector3 (col.gameObject.transform.position.x + col.center.x + Random.Range (-col.size.x / 2.0f, col.size.x / 2.0f),
 								col.center.y,
-								col.center.z + Random.Range (-col.size.z , col.size.z ));
+								col.gameObject.transform.position.z + col.center.z + Random.Range (-col.size.z / 2.0f, col.size.z /2.0f));
 		
 		while (!CheckSpawnPosition (RandomPos, BoardType.BoardType_Simple)) 
 		{
-			RandomPos = new Vector3 (col.center.x + Random.Range (-col.size.x / 2.0f, col.size.x / 2.0f),
+			RandomPos = new Vector3 (col.gameObject.transform.position.x + col.center.x + Random.Range (-col.size.x / 2.0f, col.size.x / 2.0f),
 									col.center.y,
-									col.center.z + Random.Range (-col.size.z , col.size.z ));
+									col.gameObject.transform.position.z + col.center.z + Random.Range (-col.size.z / 2.0f, col.size.z /2.0f));
 		}
 		Instantiate (objectToInstantiate,RandomPos, Quaternion.identity);
 	}
