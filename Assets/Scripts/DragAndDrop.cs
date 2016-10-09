@@ -98,6 +98,10 @@ public class DragAndDrop : MonoBehaviour
 
                     mPopUp.GetComponent<PopUp>().mtextMesh.text = hit.collider.transform.GetComponent<Weight_Mesh>().iQuantity.ToString() + hit.collider.transform.GetComponent<Weight_Mesh>().eUnits.ToString();
                 }
+                else
+                {
+                    mPopUp.SetActive(false);
+                }
             }
         }
         else
