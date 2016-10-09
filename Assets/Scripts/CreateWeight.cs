@@ -5,7 +5,7 @@ public class CreateWeight : MonoBehaviour {
 
     public GameObject weight;
     [SerializeField]
-    private ListObjectLevel listObjectLevel;
+    public ListObjectLevel listObjectLevel;
 
     [SerializeField]
     private List<Transform> listPosInventory;

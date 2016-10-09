@@ -17,6 +17,8 @@ public class Board : MonoBehaviour
 
 	private float MasseDifference = 0.0f;
 	public AudioSource audioSource;
+    CreateWeight
+        mCreateWeight;
 
     Scene
         mScene;
@@ -25,6 +27,7 @@ public class Board : MonoBehaviour
 	{
 		Instance = this;
         mScene = GameObject.FindObjectOfType<Scene>();
+        mCreateWeight = GameObject.FindObjectOfType<CreateWeight>();
     }
 	
 	void Update () 
@@ -138,6 +141,8 @@ public class Board : MonoBehaviour
         foreach (WeightInfo weight in listWeight)
         {
             Destroy(weight.gameObject);
+
         }
+            mCreateWeight.listObjectLevel.ReStartLevel();
     }
 }
