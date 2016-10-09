@@ -83,6 +83,7 @@ public class IA : MonoBehaviour {
 		}
 
 
+
         WeightJustInfo wInfo = listObject.GetCurrentOrdiInfo();
 
     //    GameObject newWeight = Instantiate(weight) as GameObject;
@@ -99,7 +100,13 @@ public class IA : MonoBehaviour {
 
         mCreateWeight.IgnoreCol(mesh);
 
-       // Instantiate(objectToInstantiate, RandomPos, Quaternion.identity);
+        // Instantiate(objectToInstantiate, RandomPos, Quaternion.identity);
+
+        mesh.GetComponent<Rigidbody>().useGravity = true;
+        mesh.GetComponent<Rigidbody>().isKinematic = false;
+        //newobj.GetComponent<WeightInfo>().placeByPlayer = false;
+        listObject.listAllObject.Add(mesh);
+
     }
 
 	void SpawningtypeTwo()
